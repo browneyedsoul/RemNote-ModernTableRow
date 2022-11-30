@@ -1,0 +1,1125 @@
+:root {
+    --table-title-background-color: #E6E6E4;
+    --table-title-background-color-dark: #525252;
+    --table-columnrow-background-color: #F7F6F3;
+    --table-columnrow-background-color-dark: #282C30;
+    --table-cell-background-color: #FFFFFF;
+    --table-cell-background-color-dark: #2F3437;
+    --table-border-color: #E6E6E4;
+    --table-border-color-dark: #525252;
+}
+// Making Table Width fit to content
+    [data-rem-container-tags~="fit"] {
+        display: inline-block;
+        width: fit-content;
+
+        > .tree-node--children {
+            > .animate-zoom-into-bullet:first-child {
+                > .tree-node--children {
+                    .RichTextViewer,
+                    .rich-text-editor > div {
+                        white-space: unset !important;
+                    }
+                }
+            }
+        }
+    }
+// Hover Preview
+    .popup-menu {
+        #document-hover-preview__popup {
+            #hierarchy-editor {
+                [data-rem-container-tags~="table90"],
+                [data-rem-container-tags~="table120"],
+                [data-rem-container-tags~="table150"],
+                [data-rem-container-tags~="table180"],
+                [data-rem-container-tags~="table210"],
+                [data-rem-container-tags~="table240"],
+                [data-rem-container-tags~="table270"],
+                [data-rem-container-tags~="table300"],
+                [data-rem-container-tags~="table330"],
+                [data-rem-container-tags~="table360"],
+                [data-rem-container-tags~="table390"],
+                [data-rem-container-tags~="table420"],
+                [data-rem-container-tags~="table450"],
+                [data-rem-container-tags~="table480"],
+                [data-rem-container-tags~="table510"],
+                [data-rem-container-tags~="table540"],
+                [data-rem-container-tags~="table570"],
+                [data-rem-container-tags~="table600"],
+                [data-rem-container-tags~="table630"],
+                [data-rem-container-tags~="table660"],
+                [data-rem-container-tags~="table690"],
+                [data-rem-container-tags~="table720"],
+                [data-rem-container-tags~="table750"],
+                [data-rem-container-tags~="table780"],
+                [data-rem-container-tags~="table810"],
+                [data-rem-container-tags~="table840"],
+                [data-rem-container-tags~="table870"],
+                [data-rem-container-tags~="table900"],
+                [data-rem-container-tags~="table930"],
+                [data-rem-container-tags~="table960"],
+                [data-rem-container-tags~="table990"],
+                [data-rem-container-tags~="table1020"],
+                [data-rem-container-tags~="table1050"],
+                [data-rem-container-tags~="table1080"],
+                [data-rem-container-tags~="table1110"],
+                [data-rem-container-tags~="table1140"],
+                [data-rem-container-tags~="table1170"],
+                [data-rem-container-tags~="table1200"] {
+                    .tree-node--children {
+                        white-space: unset;
+                    }
+                }
+            }
+        }
+    }
+// Whole Table Area
+    #hierarchy-editor {
+        [data-rem-container-tags~="table90"],
+        [data-rem-container-tags~="table120"],
+        [data-rem-container-tags~="table150"],
+        [data-rem-container-tags~="table180"],
+        [data-rem-container-tags~="table210"],
+        [data-rem-container-tags~="table240"],
+        [data-rem-container-tags~="table270"],
+        [data-rem-container-tags~="table300"],
+        [data-rem-container-tags~="table330"],
+        [data-rem-container-tags~="table360"],
+        [data-rem-container-tags~="table390"],
+        [data-rem-container-tags~="table420"],
+        [data-rem-container-tags~="table450"],
+        [data-rem-container-tags~="table480"],
+        [data-rem-container-tags~="table510"],
+        [data-rem-container-tags~="table540"],
+        [data-rem-container-tags~="table570"],
+        [data-rem-container-tags~="table600"],
+        [data-rem-container-tags~="table630"],
+        [data-rem-container-tags~="table660"],
+        [data-rem-container-tags~="table690"],
+        [data-rem-container-tags~="table720"],
+        [data-rem-container-tags~="table750"],
+        [data-rem-container-tags~="table780"],
+        [data-rem-container-tags~="table810"],
+        [data-rem-container-tags~="table840"],
+        [data-rem-container-tags~="table870"],
+        [data-rem-container-tags~="table900"],
+        [data-rem-container-tags~="table930"],
+        [data-rem-container-tags~="table960"],
+        [data-rem-container-tags~="table990"],
+        [data-rem-container-tags~="table1020"],
+        [data-rem-container-tags~="table1050"],
+        [data-rem-container-tags~="table1080"],
+        [data-rem-container-tags~="table1110"],
+        [data-rem-container-tags~="table1140"],
+        [data-rem-container-tags~="table1170"],
+        [data-rem-container-tags~="table1200"] {
+            margin: 0.5rem 0 0.5rem 1.5rem;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: var(--table-columnrow-background-color);
+
+            // Fix Global Flaw
+                .EditorContainer {
+                    overflow-wrap: anywhere !important;
+                }
+                .rem-text {
+                    min-width: 50px;
+                }
+                // Remove Placeholder(Empty Rem)
+                    .text-gray-20 {
+                        display: none;
+                    }
+                // Codenode
+                    #code-node {
+                        > span[data-linear-editor-editable-leaf~=true] {
+                            white-space: pre-wrap;
+                        }
+                    }
+                // 1.8.18
+                    .animate-zoom-into-bullet.flex.flex-col {
+                        display: block;
+                    }
+            // Remove Bullet
+                .perfect-circle__inner {
+                    // .rem-bullet__ring {
+
+                    // }
+                    .rem-bullet__core {
+                        fill: transparent;
+                    }
+                }
+            // Table Column Color Preset
+                .tree-node--children {
+                    border-color: var(--table-columnrow-background-color);
+                    border-left: 0;
+                    margin-left: 0;
+                    margin-right: 0;
+                    left: 0;
+                }
+            // Table Title
+                > :first-child {
+                    border: 0.07rem solid var(--table-border-color);
+                    background-color: var(--table-title-background-color);
+                    background-size: 100% 100%;
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+                }
+            // Table Grid Scrollable
+                > .tree-node--children {
+                    display: grid;
+                    grid-auto-rows: auto;
+                    border-left: unset;
+                    padding-left: 0;
+                    border: 0.07rem solid  var(--table-border-color);
+                    // Scrollbar
+                        &::-webkit-scrollbar-thumb {
+                            background-color: #DDD;
+                            border-radius: 2px;
+                        }
+                    // Remove Overflow Content
+                        .right-\[-4px\] {
+                            right: 4px;
+                        }
+                        .float-end {
+                            display: none;
+                        }
+                        [data-icon~="merge"] {
+                            display: none;
+                        }
+                    // Table Row and Column
+                        > .animate-zoom-into-bullet {
+                            // Table all the horizontal lines
+                                border-bottom: 0.07rem solid var(--table-border-color);
+                                border-left: unset;
+
+                                &:last-of-type {
+                                    border-bottom: unset;
+                                }
+                            // Table Left Cell
+                                > .tree-node--parent {
+                                    float: left;
+                                    font-weight: 550;
+                                    background-color: var(--table-columnrow-background-color);
+                                    text-align: left;
+                                    padding-left: 0em;
+                                    height: 100%;
+                                    > div[data-rem-tags~="highlight"] {
+                                        height: 100%;
+
+                                        > div {
+                                            height: 100%;
+                                            > span {
+                                                height: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            // Table Content Cell
+                                > .tree-node--children {
+                                    display: flex;
+                                    flex-direction: row;
+                                    text-align: left;
+                                    height: 100%;
+                                    padding-left: 0;
+
+                                    &::-webkit-scrollbar-track {
+                                        margin-left: 1rem;
+                                    }
+
+                                    > .animate-zoom-into-bullet {
+                                        background-color: var(--table-cell-background-color);
+                                        border-left: 0.07rem solid var(--table-border-color);
+                                        flex: 1 1 0;
+                                        padding-right: 0;
+                                        // width: 98%; This was a remedy for codeblock overflow but harmed whole table width control
+
+                                        > div.tree-node--children {
+                                            padding-left: 0;
+
+                                            > div {
+                                                > div {
+                                                    > span {
+                                                        padding-right: 1.2rem;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        // For Selecting Dense-width Cell Text Eclipsed with Rem-container
+                                            .rich-text-editor {
+                                                z-index: 1;
+                                            }
+                                        // Codeblock Treatment
+                                            #code-node {
+                                                overflow-x: unset;
+                                                white-space: unset;
+                                            }
+                                    }
+                                }
+                        }
+                    // Table Cell Hightlight Right Margin
+                        [data-rem-tags~="highlight"] {
+                            margin-right: 0;
+
+                            .highlight-color--red,
+                            .highlight-color--orange,
+                            .highlight-color--yellow,
+                            .highlight-color--green,
+                            .highlight-color--blue,
+                            .highlight-color--purple {
+                                padding: 0;
+                            }
+                        }
+                }
+            // Aliases in table cell
+                [data-rem-container-tags~="aliases"] {
+                    margin-right: 0;
+                }
+        }
+    }
+    // Darkmode
+        .dark {
+            #hierarchy-editor {
+                [data-rem-container-tags~="table90"],
+                [data-rem-container-tags~="table120"],
+                [data-rem-container-tags~="table150"],
+                [data-rem-container-tags~="table180"],
+                [data-rem-container-tags~="table210"],
+                [data-rem-container-tags~="table240"],
+                [data-rem-container-tags~="table270"],
+                [data-rem-container-tags~="table300"],
+                [data-rem-container-tags~="table330"],
+                [data-rem-container-tags~="table360"],
+                [data-rem-container-tags~="table390"],
+                [data-rem-container-tags~="table420"],
+                [data-rem-container-tags~="table450"],
+                [data-rem-container-tags~="table480"],
+                [data-rem-container-tags~="table510"],
+                [data-rem-container-tags~="table540"],
+                [data-rem-container-tags~="table570"],
+                [data-rem-container-tags~="table600"],
+                [data-rem-container-tags~="table630"],
+                [data-rem-container-tags~="table660"],
+                [data-rem-container-tags~="table690"],
+                [data-rem-container-tags~="table720"],
+                [data-rem-container-tags~="table750"],
+                [data-rem-container-tags~="table780"],
+                [data-rem-container-tags~="table810"],
+                [data-rem-container-tags~="table840"],
+                [data-rem-container-tags~="table870"],
+                [data-rem-container-tags~="table900"],
+                [data-rem-container-tags~="table930"],
+                [data-rem-container-tags~="table960"],
+                [data-rem-container-tags~="table990"],
+                [data-rem-container-tags~="table1020"],
+                [data-rem-container-tags~="table1050"],
+                [data-rem-container-tags~="table1080"],
+                [data-rem-container-tags~="table1110"],
+                [data-rem-container-tags~="table1140"],
+                [data-rem-container-tags~="table1170"],
+                [data-rem-container-tags~="table1200"] {
+                    background-color: var(--table-columnrow-background-color-dark);
+
+                    // Table Title
+                        > :first-child {
+                            border: 0.07rem solid var(--table-border-color-dark);
+                            border-bottom: unset;
+                            background-color: var(--table-title-background-color-dark);
+                        }
+                    // Table Left Attribute Cell
+                        > .tree-node--children {
+                            border: 0.07rem solid  var(--table-border-color-dark);
+                            border-top: unset;
+
+                            &::-webkit-scrollbar-thumb {
+                                background-color: #222;
+                            }
+
+                            > :first-child {
+                                border-right: unset;
+                            }
+                            // Table Row and Column Attribute Cell
+                                > .animate-zoom-into-bullet {
+                                    // Table all the horizontal lines
+                                        border-bottom: 0.07rem solid var(--table-border-color-dark);
+                                        border-left: unset;
+
+                                        &:last-of-type {
+                                            border-bottom: unset;
+                                        }
+
+                                        > :first-child {
+                                            background-color: var(--table-columnrow-background-color-dark) !important;
+                                        }
+                                    // Table Content Cell
+                                        > .tree-node--children {
+                                            > .animate-zoom-into-bullet {
+                                                background-color: var(--table-cell-background-color-dark);
+                                                border-left: 0.07rem solid var(--table-border-color-dark);
+                                            }
+                                        }
+                                }
+                        }
+                }
+            }
+        }
+// Table Row and Column Attribute Cell
+    [data-rem-container-tags~="table90"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 90px !important;}
+    [data-rem-container-tags~="table120"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 120px !important;}
+    [data-rem-container-tags~="table150"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 150px !important;}
+    [data-rem-container-tags~="table180"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 180px !important;}
+    [data-rem-container-tags~="table210"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 210px !important;}
+    [data-rem-container-tags~="table240"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 240px !important;}
+    [data-rem-container-tags~="table270"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 270px !important;}
+    [data-rem-container-tags~="table300"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 300px !important;}
+    [data-rem-container-tags~="table330"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 330px !important;}
+    [data-rem-container-tags~="table360"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 360px !important;}
+    [data-rem-container-tags~="table390"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 390px !important;}
+    [data-rem-container-tags~="table420"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 420px !important;}
+    [data-rem-container-tags~="table450"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 450px !important;}
+    [data-rem-container-tags~="table480"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 480px !important;}
+    [data-rem-container-tags~="table510"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 510px !important;}
+    [data-rem-container-tags~="table540"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 540px !important;}
+    [data-rem-container-tags~="table570"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 570px !important;}
+    [data-rem-container-tags~="table600"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 600px !important;}
+    [data-rem-container-tags~="table630"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 630px !important;}
+    [data-rem-container-tags~="table660"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 660px !important;}
+    [data-rem-container-tags~="table690"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 690px !important;}
+    [data-rem-container-tags~="table720"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 720px !important;}
+    [data-rem-container-tags~="table750"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 750px !important;}
+    [data-rem-container-tags~="table780"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 780px !important;}
+    [data-rem-container-tags~="table810"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 810px !important;}
+    [data-rem-container-tags~="table840"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 840px !important;}
+    [data-rem-container-tags~="table870"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 870px !important;}
+    [data-rem-container-tags~="table900"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 900px !important;}
+    [data-rem-container-tags~="table930"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 930px !important;}
+    [data-rem-container-tags~="table960"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 960px !important;}
+    [data-rem-container-tags~="table990"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 990px !important;}
+    [data-rem-container-tags~="table1020"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1020px !important;}
+    [data-rem-container-tags~="table1050"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1050px !important;}
+    [data-rem-container-tags~="table1080"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1080px !important;}
+    [data-rem-container-tags~="table1110"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1110px !important;}
+    [data-rem-container-tags~="table1140"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1140px !important;}
+    [data-rem-container-tags~="table1170"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1170px !important;}
+    [data-rem-container-tags~="table1200"]  > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1200px !important;}
+// Table Column Color Preset
+    [data-rem-container-tags~="th"],
+    [data-rem-container-tags~="th"] > .tree-node--children > .animate-zoom-into-bullet,
+    [data-rem-container-tags~="tablecolor"] {
+        background-color: var(--table-columnrow-background-color) !important;
+        font-weight: 550;
+        text-align: center;
+
+        [data-rem-tags~="th"],
+        [data-rem-tags~="tablecolor"] {
+            > .tree-node--parent {
+                height: 100%;
+
+
+            }
+        }
+        // Declutter Tag
+            .hierarchy-editor__tag-bar__tag {
+                color: transparent;
+                background-color: transparent !important;
+
+                span {
+                    display: none;
+                }
+
+                .hierarchy-editor__tag-bar__tag__delete {
+                    opacity: .2;
+                    left: 12px;
+                }
+            }
+    }
+    // Darkmode
+        .dark {
+            [data-rem-container-tags~="th"],
+            [data-rem-container-tags~="th"] > .tree-node--children > .animate-zoom-into-bullet,
+            [data-rem-container-tags~="tablecolor"] {
+                background-color: var(--table-columnrow-background-color-dark) !important;
+            }
+        }
+// Table Grid Scrollable
+    [data-rem-container-tags~="w30"],
+    [data-rem-container-tags~="w60"],
+    [data-rem-container-tags~="w90"],
+    [data-rem-container-tags~="w120"],
+    [data-rem-container-tags~="w150"],
+    [data-rem-container-tags~="w180"],
+    [data-rem-container-tags~="w210"],
+    [data-rem-container-tags~="w240"],
+    [data-rem-container-tags~="w270"],
+    [data-rem-container-tags~="w300"],
+    [data-rem-container-tags~="w330"],
+    [data-rem-container-tags~="w360"],
+    [data-rem-container-tags~="w390"],
+    [data-rem-container-tags~="w420"],
+    [data-rem-container-tags~="w450"],
+    [data-rem-container-tags~="w480"],
+    [data-rem-container-tags~="w510"],
+    [data-rem-container-tags~="w540"],
+    [data-rem-container-tags~="w570"],
+    [data-rem-container-tags~="w600"],
+    [data-rem-container-tags~="w630"],
+    [data-rem-container-tags~="w660"],
+    [data-rem-container-tags~="w690"],
+    [data-rem-container-tags~="w720"],
+    [data-rem-container-tags~="w750"],
+    [data-rem-container-tags~="w780"],
+    [data-rem-container-tags~="w810"],
+    [data-rem-container-tags~="w840"],
+    [data-rem-container-tags~="w870"],
+    [data-rem-container-tags~="w900"],
+    [data-rem-container-tags~="w930"],
+    [data-rem-container-tags~="w960"],
+    [data-rem-container-tags~="w990"],
+    [data-rem-container-tags~="w1020"],
+    [data-rem-container-tags~="w1050"],
+    [data-rem-container-tags~="w1080"],
+    [data-rem-container-tags~="w1110"],
+    [data-rem-container-tags~="w1140"],
+    [data-rem-container-tags~="w1170"],
+    [data-rem-container-tags~="w1200"] {
+        > .tree-node--children {
+            overflow-x: auto;
+            white-space: pre;
+        }
+    }
+// Width Adjustment of Whole Table Content Cell
+    [data-rem-container-tags~="w30"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 30px;}
+    [data-rem-container-tags~="w60"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 60px;}
+    [data-rem-container-tags~="w90"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 90px;}
+    [data-rem-container-tags~="w120"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 120px;}
+    [data-rem-container-tags~="w150"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 150px;}
+    [data-rem-container-tags~="w180"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 180px;}
+    [data-rem-container-tags~="w210"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 210px;}
+    [data-rem-container-tags~="w240"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 240px;}
+    [data-rem-container-tags~="w270"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 270px;}
+    [data-rem-container-tags~="w300"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 300px;}
+    [data-rem-container-tags~="w330"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 330px;}
+    [data-rem-container-tags~="w360"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 360px;}
+    [data-rem-container-tags~="w390"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 390px;}
+    [data-rem-container-tags~="w420"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 420px;}
+    [data-rem-container-tags~="w450"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 450px;}
+    [data-rem-container-tags~="w480"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 480px;}
+    [data-rem-container-tags~="w510"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 510px;}
+    [data-rem-container-tags~="w540"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 540px;}
+    [data-rem-container-tags~="w570"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 570px;}
+    [data-rem-container-tags~="w600"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 600px;}
+    [data-rem-container-tags~="w630"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 630px;}
+    [data-rem-container-tags~="w660"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 660px;}
+    [data-rem-container-tags~="w690"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 690px;}
+    [data-rem-container-tags~="w720"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 720px;}
+    [data-rem-container-tags~="w750"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 750px;}
+    [data-rem-container-tags~="w780"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 780px;}
+    [data-rem-container-tags~="w810"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 810px;}
+    [data-rem-container-tags~="w840"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 840px;}
+    [data-rem-container-tags~="w870"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 870px;}
+    [data-rem-container-tags~="w900"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 900px;}
+    [data-rem-container-tags~="w930"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 930px;}
+    [data-rem-container-tags~="w960"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 960px;}
+    [data-rem-container-tags~="w990"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 990px;}
+    [data-rem-container-tags~="w1020"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1020px;}
+    [data-rem-container-tags~="w1050"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1050px;}
+    [data-rem-container-tags~="w1080"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1080px;}
+    [data-rem-container-tags~="w1110"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1110px;}
+    [data-rem-container-tags~="w1140"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1140px;}
+    [data-rem-container-tags~="w1170"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1170px;}
+    [data-rem-container-tags~="w1200"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1200px;}
+// Width Adjustment of Individual Table Content Cell
+    [data-rem-container-tags~="c1w200"],
+    [data-rem-container-tags~="c1w400"],
+    [data-rem-container-tags~="c1w600"],
+    [data-rem-container-tags~="c1w800"],
+    [data-rem-container-tags~="c1w1000"],
+    [data-rem-container-tags~="c2w200"],
+    [data-rem-container-tags~="c2w400"],
+    [data-rem-container-tags~="c2w600"],
+    [data-rem-container-tags~="c2w800"],
+    [data-rem-container-tags~="c2w1000"],
+    [data-rem-container-tags~="c3w200"],
+    [data-rem-container-tags~="c3w400"],
+    [data-rem-container-tags~="c3w600"],
+    [data-rem-container-tags~="c3w800"],
+    [data-rem-container-tags~="c3w1000"],
+    [data-rem-container-tags~="c4w200"],
+    [data-rem-container-tags~="c4w400"],
+    [data-rem-container-tags~="c4w600"],
+    [data-rem-container-tags~="c4w800"],
+    [data-rem-container-tags~="c4w1000"],
+    [data-rem-container-tags~="c5w200"],
+    [data-rem-container-tags~="c5w400"],
+    [data-rem-container-tags~="c5w600"],
+    [data-rem-container-tags~="c5w800"],
+    [data-rem-container-tags~="c5w1000"],
+    [data-rem-container-tags~="c6w200"],
+    [data-rem-container-tags~="c6w400"],
+    [data-rem-container-tags~="cw600"],
+    [data-rem-container-tags~="c6w800"],
+    [data-rem-container-tags~="c6w1000"],
+    [data-rem-container-tags~="c7w200"],
+    [data-rem-container-tags~="c7w400"],
+    [data-rem-container-tags~="c7w600"],
+    [data-rem-container-tags~="c7w800"],
+    [data-rem-container-tags~="c7w1000"],
+    [data-rem-container-tags~="c8w200"],
+    [data-rem-container-tags~="c8w400"],
+    [data-rem-container-tags~="c8w600"],
+    [data-rem-container-tags~="c8w800"],
+    [data-rem-container-tags~="c8w1000"],
+    [data-rem-container-tags~="c9w200"],
+    [data-rem-container-tags~="c9w400"],
+    [data-rem-container-tags~="c9w600"],
+    [data-rem-container-tags~="c9w800"],
+    [data-rem-container-tags~="c9w1000"] {
+        > div.tree-node--children {
+            overflow-x: auto !important;
+            white-space: pre !important;
+        }
+    }
+    // 200
+        [data-rem-container-tags~="c1w200"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(1) {
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c2w200"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(2) {
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c3w200"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(3) {
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c4w200"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(4) {
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c5w200"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(5) {
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c6w200"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(6) {
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c7w200"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(7) {
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c8w200"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(8) {
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c9w200"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(9) {
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+
+    // 400
+        [data-rem-container-tags~="c1w400"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(1) {
+                            min-width: 400px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c2w400"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(2) {
+                            min-width: 400px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c3w400"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(3) {
+                            min-width: 400px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c4w400"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(4) {
+                            min-width: 400px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c5w400"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(5) {
+                            min-width: 400px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c6w400"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(6) {
+                            min-width: 400px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c7w400"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(7) {
+                            min-width: 400px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c8w400"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(8) {
+                            min-width: 400px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c9w400"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(9) {
+                            min-width: 400px;
+                        }
+                    }
+                }
+            }
+        }
+
+    // 600
+        [data-rem-container-tags~="c1w600"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(1) {
+                            min-width: 600px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c2w600"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(2) {
+                            min-width: 600px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c3w600"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(3) {
+                            min-width: 600px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c4w600"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(4) {
+                            min-width: 600px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c5w600"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(5) {
+                            min-width: 600px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c6w600"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(6) {
+                            min-width: 600px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c7w600"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(7) {
+                            min-width: 600px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c8w600"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(8) {
+                            min-width: 600px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c9w600"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(9) {
+                            min-width: 600px;
+                        }
+                    }
+                }
+            }
+        }
+
+    // 800
+        [data-rem-container-tags~="c1w800"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(1) {
+                            min-width: 800px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c2w800"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(2) {
+                            min-width: 800px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c3w800"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(3) {
+                            min-width: 800px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c4w800"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(4) {
+                            min-width: 800px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c5w800"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(5) {
+                            min-width: 800px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c6w800"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(6) {
+                            min-width: 800px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c7w800"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(7) {
+                            min-width: 800px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c8w800"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(8) {
+                            min-width: 800px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c9w800"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(9) {
+                            min-width: 800px;
+                        }
+                    }
+                }
+            }
+        }
+
+    // 1000
+        [data-rem-container-tags~="c1w1000"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(1) {
+                            min-width: 1000px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c2w1000"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(2) {
+                            min-width: 1000px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c3w1000"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(3) {
+                            min-width: 1000px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c4w1000"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(4) {
+                            min-width: 1000px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c5w1000"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(5) {
+                            min-width: 1000px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c6w1000"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(6) {
+                            min-width: 1000px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c7w1000"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(7) {
+                            min-width: 1000px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c8w1000"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(8) {
+                            min-width: 1000px;
+                        }
+                    }
+                }
+            }
+        }
+
+        [data-rem-container-tags~="c9w1000"] {
+            > div.tree-node--children {
+                > div.animate-zoom-into-bullet {
+                    > div.tree-node--children {
+                        > div.animate-zoom-into-bullet:nth-of-type(9) {
+                            min-width: 1000px;
+                        }
+                    }
+                }
+            }
+        }

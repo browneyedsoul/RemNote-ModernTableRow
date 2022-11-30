@@ -1,22 +1,21 @@
 {
+  "author": "Min-Ki Park",
+  "name": "Modern Table Row",
+  "description": "Make your rem table with simple tags!",
+  "enableOnMobile": true,
+  "id": "browneyedsoul-ModernTableRow",
+  "repoUrl": "https://github.com/browneyedsoul/RemNote-ModernTableRow",
   "manifestVersion": 1,
-  "id": "snippet_template",
-  "name": "Snippet Template",
-  "author": "remnote",
-  "repoUrl": "https://www.google.com",
   "version": {
     "major": 0,
     "minor": 0,
     "patch": 1
   },
-  "theme": [],
-  "enableOnMobile": false,
-  "description": "",
   "requestNative": false,
   "requiredScopes": [
     {
       "type": "All",
-      "level": "ReadCreateModify"
+      "level": "Read"
     }
   ]
 }
