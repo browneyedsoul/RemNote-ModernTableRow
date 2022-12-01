@@ -38,7 +38,7 @@ Make your rem table with simple tags!
   | 1200px | `W1200` |
 
   <img src="https://forum.remnote.io/uploads/default/original/2X/8/8ae892cd66862b9115bbbe74a0a3f1246b8a79e3.gif">
-  <img src="public/2.gif">
+  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/2.gif">
   </details>
 
   <details>
@@ -63,7 +63,7 @@ Make your rem table with simple tags!
  
   - Tag Name : `fit`
 
-  <img src="public/fit.gif">
+  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/fit.gif">
   </details>
 
  
@@ -73,20 +73,20 @@ Make your rem table with simple tags!
 
   - Tag Name : `th`
 
-  <img src="public/thformatting.png">
-  <img src="public/thformatting.gif">
+  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/thformatting.png">
+  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/thformatting.gif">
   </details>
 
 ## Use case
 
   <details>
     <summary>Copy a Table from any sources</summary>
-    <img src="public/0.gif">
+    <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/0.gif">
   </details>
 
   <details>
     <summary>Paste it to RemNote and Tag the predefined-width Table Row Tags to the Table Title area</summary>
-    <img src="public/1.gif">
+    <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/1.gif">
   </details>
 
 ## Hacky methods
