@@ -39,7 +39,7 @@ Then type "##Table90" in the "Table" Rem and press enter to create your table:
   <details>
     <summary>Tuning Global Column Width</summary>
 
-  | Table Left Column Width | Tag Name for global width tuning |
+  | Global Column Width | Tag Name for global width tuning |
   | ------------- | ------------- |
   | 90px | `W90` |
   | 120px | `W120` |
