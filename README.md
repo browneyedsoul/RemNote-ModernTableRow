@@ -4,6 +4,19 @@ Make your rem table with simple tags!
 
 ## Usage
 
+### Getting Started
+
+Create a Rem hierarchy like in this image:
+
+![image](https://user-images.githubusercontent.com/58147075/205598631-67e58b0a-19f5-4c74-8ed9-3b5a563362a4.png)
+
+Then type "##Table90" in the "Table" Rem and press enter to create your table:
+
+![image](https://user-images.githubusercontent.com/58147075/205599037-a453ed5a-641f-42e9-af39-ea18d54edf4b.png)
+
+### Available Tags
+
+
 - You have to select one of the widths listed below first to make a `Modern Table Low`
   - From 90px to 1200px, 30px interval
 
