@@ -139,6 +139,12 @@
                     .animate-zoom-into-bullet.flex.flex-col {
                         display: block;
                     }
+            // Card In Table
+                .node-card-item {
+                    &::before {
+                        margin-left: unset;
+                    }
+                }
             // Remove Bullet
                 .perfect-circle__inner {
                     // .rem-bullet__ring {
