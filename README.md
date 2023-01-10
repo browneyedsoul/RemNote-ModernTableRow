@@ -36,8 +36,7 @@ Then type "##Table90" in the "Table" Rem and press enter to create your table:
 
 ## Tune your table with title bar tagging
 
-  <details>
-    <summary>Tuning Global Column Width</summary>
+### Global Column Width
 
   | Global Column Width | Tag Name for global width tuning |
   | ------------- | ------------- |
@@ -49,46 +48,55 @@ Then type "##Table90" in the "Table" Rem and press enter to create your table:
   | ...   |   ...    |
   | 1170px | `W1170` |
   | 1200px | `W1200` |
+  | - |  ↓ Tags easy to remember |
+  | 100px | `W100` |
+  | 200px | `W200` |
+  | 300px | `W300` |
+  | 400px | `W400` |
+  | 500px | `W500` |
+  | 600px | `W600` |
+  | 700px | `W700` |
+  | 800px | `W800` |
+  | 900px | `W900` |
+  | 1000px | `W1000` |
 
   <img src="https://forum.remnote.io/uploads/default/original/2X/8/8ae892cd66862b9115bbbe74a0a3f1246b8a79e3.gif">
   <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/2.gif">
   </details>
 
-  <details>
-    <summary>Tuning Individual Column Width</summary>
+  ### Local Column Width
 
   - 'c1' means column 1
   - 'c2' means column 2
   - ...
 
-  | Available Column Width | Tag Name for width tuning - INDIVIDUAL column |
+  | Available Column Width | Tag Name with 200px interval |
   | ------------- | ------------- |
-  | 200px | `c1w200`, `c2w200`, `c3w200`, `c4w200`, `c5w200`, ... , `c9w200`  |
+  | 200px | `c1w200` `c2w200`, `c3w200`, `c4w200`, `c5w200`, ... , `c9w200`  |
   | 400px | `c1w400`, `c2w400`, ... `c9w400`  |
   | 600px | `c1w600`, `c2w600`, ... `c9w600` |
   | 800px | `c1w800`, `c2w800`, ... `c9w800` |
   | 1000px | `c1w1000` `c2w1000`,, ... `c9w1000` |
-
-  </details>
-
-  <details>
-    <summary>Table width shrinking to fit inner contents</summary>
+  
+### Table width shrinking to fit inner contents
  
-  - Tag Name : `fit`
+- Tag Name : `fit`
 
-  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/fit.gif">
-  </details>
+<img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/fit.gif">
 
- 
+### Table Column Header Formatting
 
-  <details>
-    <summary>Table Column Header Formatting</summary>
+- Tag Name : `th`
 
-  - Tag Name : `th`
+<img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/thformatting.png">
+<img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/thformatting.gif">
+  
+### Turning a Row table cell into a Column Table cell
+  
+- You can now make seperated table-row column by simple indenting under a top level rem in a table cell
 
-  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/thformatting.png">
-  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/thformatting.gif">
-  </details>
+<img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/row-to-column.webp">
+
 
 ## Use case
 
@@ -100,15 +108,4 @@ Then type "##Table90" in the "Table" Rem and press enter to create your table:
   <details>
     <summary>Paste it to RemNote and Tag the predefined-width Table Row Tags to the Table Title area</summary>
     <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/1.gif">
-  </details>
-
-## Hacky methods
-
-  <details>
-    <summary>Turn a Row table cell into a Column Table cell</summary>
-
-  - Tag Nmae : ~~`lb`~~(deprecated)
-  
-  > You can now make seperated table-row column by simple indenting under a top level rem in a table cell
-    
   </details>
