@@ -38,45 +38,44 @@ Then type "##Table90" in the "Table" Rem and press enter to create your table:
 
 ### Global Column Width
 
-  | Global Column Width | Tag Name for global width tuning |
-  | ------------- | ------------- |
-  | 90px | `W90` |
-  | 120px | `W120` |
-  | 150px | `W150` |
-  | 180px | `W180` |
-  | 210px | `W210` |
-  | ...   |   ...    |
-  | 1170px | `W1170` |
-  | 1200px | `W1200` |
-  | - |  ↓ Tags easy to remember |
-  | 100px | `W100` |
-  | 200px | `W200` |
-  | 300px | `W300` |
-  | 400px | `W400` |
-  | 500px | `W500` |
-  | 600px | `W600` |
-  | 700px | `W700` |
-  | 800px | `W800` |
-  | 900px | `W900` |
-  | 1000px | `W1000` |
+| Global Column Width | Tag Name for global width tuning |
+| ------------- | ------------- |
+| 90px | `W90` |
+| 120px | `W120` |
+| 150px | `W150` |
+| 180px | `W180` |
+| 210px | `W210` |
+| ...   |   ...    |
+| 1170px | `W1170` |
+| 1200px | `W1200` |
+| - |  ↓ Tags easy to remember |
+| 100px | `W100` |
+| 200px | `W200` |
+| 300px | `W300` |
+| 400px | `W400` |
+| 500px | `W500` |
+| 600px | `W600` |
+| 700px | `W700` |
+| 800px | `W800` |
+| 900px | `W900` |
+| 1000px | `W1000` |
 
-  <img src="https://forum.remnote.io/uploads/default/original/2X/8/8ae892cd66862b9115bbbe74a0a3f1246b8a79e3.gif">
-  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/2.gif">
-  </details>
+<img src="https://forum.remnote.io/uploads/default/original/2X/8/8ae892cd66862b9115bbbe74a0a3f1246b8a79e3.gif">
+<img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/2.gif">
 
-  ### Local Column Width
+### Local Column Width
 
-  - 'c1' means column 1
-  - 'c2' means column 2
-  - ...
+- 'c1' means column 1
+- 'c2' means column 2
+- ...
 
-  | Available Column Width | Tag Name with 200px interval |
-  | ------------- | ------------- |
-  | 200px | `c1w200` `c2w200`, `c3w200`, `c4w200`, `c5w200`, ... , `c9w200`  |
-  | 400px | `c1w400`, `c2w400`, ... `c9w400`  |
-  | 600px | `c1w600`, `c2w600`, ... `c9w600` |
-  | 800px | `c1w800`, `c2w800`, ... `c9w800` |
-  | 1000px | `c1w1000` `c2w1000`,, ... `c9w1000` |
+| Available Column Width | Tag Name with 200px interval |
+| ------------- | ------------- |
+| 200px | `c1w200` `c2w200`, `c3w200`, `c4w200`, `c5w200`, ... , `c9w200`  |
+| 400px | `c1w400`, `c2w400`, ... `c9w400`  |
+| 600px | `c1w600`, `c2w600`, ... `c9w600` |
+| 800px | `c1w800`, `c2w800`, ... `c9w800` |
+| 1000px | `c1w1000` `c2w1000`,, ... `c9w1000` |
   
 ### Table width shrinking to fit inner contents
  
@@ -100,12 +99,12 @@ Then type "##Table90" in the "Table" Rem and press enter to create your table:
 
 ## Use case
 
-  <details>
-    <summary>Copy a Table from any sources</summary>
-    <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/0.gif">
-  </details>
+<details>
+  <summary>Copy a Table from any sources</summary>
+  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/0.gif">
+</details>
 
-  <details>
-    <summary>Paste it to RemNote and Tag the predefined-width Table Row Tags to the Table Title area</summary>
-    <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/1.gif">
-  </details>
+<details>
+  <summary>Paste it to RemNote and Tag the predefined-width Table Row Tags to the Table Title area</summary>
+  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/1.gif">
+</details>
