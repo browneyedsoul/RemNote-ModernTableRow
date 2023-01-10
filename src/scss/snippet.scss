@@ -1,18 +1,19 @@
 :root {
-    --table-title-background-color: #E6E6E4;
-    --table-title-background-color-dark: #525252;
-    --table-columnrow-background-color: #F7F6F3;
-    --table-columnrow-background-color-dark: #282C30;
-    --table-cell-background-color: #FFFFFF;
-    --table-cell-background-color-dark: #2F3437;
-    --table-border-color: #E6E6E4;
-    --table-border-color-dark: #525252;
+    --table-title-bg: #E6E6E4;
+    --table-title-bg-dark: #525252;
+    --table-columnrow-bg: #F7F6F3;
+    --table-columnrow-bg-dark: #282C30;
+    --table-cell-bg: #FFFFFF;
+    --table-cell-bg-dark: #2F3437;
+    --table-border: #E6E6E4;
+    --table-border-dark: #525252;
+    --table-scrollbar: #BBB;
+    --table-scrollbar-dark: #222;
 }
 // Making Table Width fit to content
     [data-rem-container-tags~="fit"] {
         display: inline-block;
         width: fit-content;
-
         > .tree-node--children {
             > .animate-zoom-into-bullet:first-child {
                 > .tree-node--children {
@@ -24,6 +25,7 @@
             }
         }
     }
+
 // Hover Preview
     .popup-menu {
         #document-hover-preview__popup {
@@ -73,7 +75,13 @@
             }
         }
     }
-// Whole Table Area
+@mixin ModernTableRow(
+    $table-title-bg,
+    $table-columnrow-bg,
+    $table-cell-bg,
+    $table-border,
+    $table-scrollbar
+) {
     #hierarchy-editor {
         [data-rem-container-tags~="table90"],
         [data-rem-container-tags~="table120"],
@@ -116,8 +124,7 @@
             margin: 0.5rem 0 0.5rem 1.5rem;
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
-            background-color: var(--table-columnrow-background-color);
-
+            background-color: $table-columnrow-bg;
             // Fix Global Flaw
                 .EditorContainer {
                     overflow-wrap: anywhere !important;
@@ -156,7 +163,7 @@
                 }
             // Table Column Color Preset
                 .tree-node--children {
-                    border-color: var(--table-columnrow-background-color);
+                    border-color: $table-columnrow-bg;
                     border-left: 0;
                     margin-left: 0;
                     margin-right: 0;
@@ -164,11 +171,40 @@
                 }
             // Table Title
                 > :first-child {
-                    border: 0.07rem solid var(--table-border-color);
-                    background-color: var(--table-title-background-color);
+                    border: 0.07rem solid $table-border;
+                    border-bottom: unset;
+                    background-color: $table-title-bg;
                     background-size: 100% 100%;
                     border-top-left-radius: 4px;
                     border-top-right-radius: 4px;
+                }
+            // Table Column Color Preset
+                [data-rem-container-tags~="th"],
+                [data-rem-container-tags~="th"] > .tree-node--children > .animate-zoom-into-bullet,
+                [data-rem-container-tags~="tablecolor"] {
+                    background-color: $table-columnrow-bg !important;
+                    font-weight: 550;
+                    text-align: center;
+                    [data-rem-tags~="th"],
+                    [data-rem-tags~="tablecolor"] {
+                        > .tree-node--parent {
+                            height: 100%;
+                        }
+                    }
+                    // Declutter Tag
+                    .hierarchy-editor__tag-bar__tag {
+                        color: transparent;
+                        background-color: transparent !important;
+
+                        span {
+                            display: none;
+                        }
+
+                        .hierarchy-editor__tag-bar__tag__delete {
+                            opacity: .2;
+                            left: 12px;
+                        }
+                    }
                 }
             // Table Grid Scrollable
                 > .tree-node--children {
@@ -176,11 +212,24 @@
                     grid-auto-rows: auto;
                     border-left: unset;
                     padding-left: 0;
-                    border: 0.07rem solid  var(--table-border-color);
+                    border: 0.07rem solid $table-border;
+                    @media screen and (min-width: 320px) {
+                        overflow-x: auto;
+                        .rem-text {
+                            min-width: 180px !important;
+                            word-break: break-all;
+                        }
+                    }
+                    > :first-child {
+                        border-right: unset;
+                    }
                     // Scrollbar
                         &::-webkit-scrollbar-thumb {
-                            background-color: #DDD;
+                            background-color: $table-scrollbar;
                             border-radius: 2px;
+                        }
+                        &::-webkit-scrollbar-track {
+                            background-color: $table-title-bg;
                         }
                     // Remove Overflow Content
                         .right-\[-4px\] {
@@ -195,7 +244,7 @@
                     // Table Row and Column
                         > .animate-zoom-into-bullet {
                             // Table all the horizontal lines
-                                border-bottom: 0.07rem solid var(--table-border-color);
+                                border-bottom: 0.07rem solid $table-border;
                                 border-left: unset;
 
                                 &:last-of-type {
@@ -205,7 +254,7 @@
                                 > .tree-node--parent {
                                     float: left;
                                     font-weight: 550;
-                                    background-color: var(--table-columnrow-background-color);
+                                    background-color: $table-columnrow-bg;
                                     text-align: left;
                                     padding-left: 0em;
                                     height: 100%;
@@ -227,21 +276,17 @@
                                     text-align: left;
                                     height: 100%;
                                     padding-left: 0;
-
                                     &::-webkit-scrollbar-track {
                                         margin-left: 1rem;
                                     }
-
                                     > .animate-zoom-into-bullet {
-                                        background-color: var(--table-cell-background-color);
-                                        border-left: 0.07rem solid var(--table-border-color);
+                                        background-color: $table-cell-bg;
+                                        border-left: 0.07rem solid $table-border;
                                         flex: 1 1 0;
                                         padding-right: 0;
                                         // width: 98%; This was a remedy for codeblock overflow but harmed whole table width control
-
                                         > div.tree-node--children {
                                             padding-left: 0;
-
                                             > div {
                                                 > div {
                                                     > span {
@@ -250,7 +295,6 @@
                                                 }
                                             }
                                         }
-
                                         // For Selecting Dense-width Cell Text Eclipsed with Rem-container
                                             .rich-text-editor {
                                                 z-index: 1;
@@ -283,170 +327,27 @@
                 }
         }
     }
-    // Darkmode
-        .dark {
-            #hierarchy-editor {
-                [data-rem-container-tags~="table90"],
-                [data-rem-container-tags~="table120"],
-                [data-rem-container-tags~="table150"],
-                [data-rem-container-tags~="table180"],
-                [data-rem-container-tags~="table210"],
-                [data-rem-container-tags~="table240"],
-                [data-rem-container-tags~="table270"],
-                [data-rem-container-tags~="table300"],
-                [data-rem-container-tags~="table330"],
-                [data-rem-container-tags~="table360"],
-                [data-rem-container-tags~="table390"],
-                [data-rem-container-tags~="table420"],
-                [data-rem-container-tags~="table450"],
-                [data-rem-container-tags~="table480"],
-                [data-rem-container-tags~="table510"],
-                [data-rem-container-tags~="table540"],
-                [data-rem-container-tags~="table570"],
-                [data-rem-container-tags~="table600"],
-                [data-rem-container-tags~="table630"],
-                [data-rem-container-tags~="table660"],
-                [data-rem-container-tags~="table690"],
-                [data-rem-container-tags~="table720"],
-                [data-rem-container-tags~="table750"],
-                [data-rem-container-tags~="table780"],
-                [data-rem-container-tags~="table810"],
-                [data-rem-container-tags~="table840"],
-                [data-rem-container-tags~="table870"],
-                [data-rem-container-tags~="table900"],
-                [data-rem-container-tags~="table930"],
-                [data-rem-container-tags~="table960"],
-                [data-rem-container-tags~="table990"],
-                [data-rem-container-tags~="table1020"],
-                [data-rem-container-tags~="table1050"],
-                [data-rem-container-tags~="table1080"],
-                [data-rem-container-tags~="table1110"],
-                [data-rem-container-tags~="table1140"],
-                [data-rem-container-tags~="table1170"],
-                [data-rem-container-tags~="table1200"] {
-                    background-color: var(--table-columnrow-background-color-dark);
-
-                    // Table Title
-                        > :first-child {
-                            border: 0.07rem solid var(--table-border-color-dark);
-                            border-bottom: unset;
-                            background-color: var(--table-title-background-color-dark);
-                        }
-                    // Table Left Attribute Cell
-                        > .tree-node--children {
-                            border: 0.07rem solid  var(--table-border-color-dark);
-                            border-top: unset;
-
-                            &::-webkit-scrollbar-thumb {
-                                background-color: #222;
-                            }
-
-                            > :first-child {
-                                border-right: unset;
-                            }
-                            // Table Row and Column Attribute Cell
-                                > .animate-zoom-into-bullet {
-                                    // Table all the horizontal lines
-                                        border-bottom: 0.07rem solid var(--table-border-color-dark);
-                                        border-left: unset;
-
-                                        &:last-of-type {
-                                            border-bottom: unset;
-                                        }
-
-                                        > :first-child {
-                                            background-color: var(--table-columnrow-background-color-dark) !important;
-                                        }
-                                    // Table Content Cell
-                                        > .tree-node--children {
-                                            > .animate-zoom-into-bullet {
-                                                background-color: var(--table-cell-background-color-dark);
-                                                border-left: 0.07rem solid var(--table-border-color-dark);
-                                            }
-                                        }
-                                }
-                        }
-                }
-            }
-        }
+}
+@include ModernTableRow(
+    var(--table-title-bg), 
+    var(--table-columnrow-bg), 
+    var(--table-cell-bg), 
+    var(--table-border),
+    var(--table-scrollbar)
+);
+.dark {
+    @include ModernTableRow(
+        var(--table-title-bg-dark), 
+        var(--table-columnrow-bg-dark), 
+        var(--table-cell-bg-dark), 
+        var(--table-border-dark),
+        var(--table-scrollbar-dark)
+    );
+}
 // Table Row and Column Attribute Cell
-    [data-rem-container-tags~="table90"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 90px !important;}
-    [data-rem-container-tags~="table120"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 120px !important;}
-    [data-rem-container-tags~="table150"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 150px !important;}
-    [data-rem-container-tags~="table180"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 180px !important;}
-    [data-rem-container-tags~="table210"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 210px !important;}
-    [data-rem-container-tags~="table240"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 240px !important;}
-    [data-rem-container-tags~="table270"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 270px !important;}
-    [data-rem-container-tags~="table300"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 300px !important;}
-    [data-rem-container-tags~="table330"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 330px !important;}
-    [data-rem-container-tags~="table360"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 360px !important;}
-    [data-rem-container-tags~="table390"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 390px !important;}
-    [data-rem-container-tags~="table420"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 420px !important;}
-    [data-rem-container-tags~="table450"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 450px !important;}
-    [data-rem-container-tags~="table480"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 480px !important;}
-    [data-rem-container-tags~="table510"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 510px !important;}
-    [data-rem-container-tags~="table540"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 540px !important;}
-    [data-rem-container-tags~="table570"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 570px !important;}
-    [data-rem-container-tags~="table600"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 600px !important;}
-    [data-rem-container-tags~="table630"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 630px !important;}
-    [data-rem-container-tags~="table660"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 660px !important;}
-    [data-rem-container-tags~="table690"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 690px !important;}
-    [data-rem-container-tags~="table720"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 720px !important;}
-    [data-rem-container-tags~="table750"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 750px !important;}
-    [data-rem-container-tags~="table780"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 780px !important;}
-    [data-rem-container-tags~="table810"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 810px !important;}
-    [data-rem-container-tags~="table840"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 840px !important;}
-    [data-rem-container-tags~="table870"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 870px !important;}
-    [data-rem-container-tags~="table900"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 900px !important;}
-    [data-rem-container-tags~="table930"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 930px !important;}
-    [data-rem-container-tags~="table960"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 960px !important;}
-    [data-rem-container-tags~="table990"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 990px !important;}
-    [data-rem-container-tags~="table1020"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1020px !important;}
-    [data-rem-container-tags~="table1050"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1050px !important;}
-    [data-rem-container-tags~="table1080"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1080px !important;}
-    [data-rem-container-tags~="table1110"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1110px !important;}
-    [data-rem-container-tags~="table1140"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1140px !important;}
-    [data-rem-container-tags~="table1170"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1170px !important;}
-    [data-rem-container-tags~="table1200"]  > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: 1200px !important;}
-// Table Column Color Preset
-    [data-rem-container-tags~="th"],
-    [data-rem-container-tags~="th"] > .tree-node--children > .animate-zoom-into-bullet,
-    [data-rem-container-tags~="tablecolor"] {
-        background-color: var(--table-columnrow-background-color) !important;
-        font-weight: 550;
-        text-align: center;
-
-        [data-rem-tags~="th"],
-        [data-rem-tags~="tablecolor"] {
-            > .tree-node--parent {
-                height: 100%;
-
-
-            }
-        }
-        // Declutter Tag
-            .hierarchy-editor__tag-bar__tag {
-                color: transparent;
-                background-color: transparent !important;
-
-                span {
-                    display: none;
-                }
-
-                .hierarchy-editor__tag-bar__tag__delete {
-                    opacity: .2;
-                    left: 12px;
-                }
-            }
+    @for $i from 3 through 40 {
+        [data-rem-container-tags~="table#{$i * 30}"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: #{$i * 30px} !important;}
     }
-    // Darkmode
-        .dark {
-            [data-rem-container-tags~="th"],
-            [data-rem-container-tags~="th"] > .tree-node--children > .animate-zoom-into-bullet,
-            [data-rem-container-tags~="tablecolor"] {
-                background-color: var(--table-columnrow-background-color-dark) !important;
-            }
-        }
 // Table Grid Scrollable
     [data-rem-container-tags~="w30"],
     [data-rem-container-tags~="w60"],
@@ -487,53 +388,27 @@
     [data-rem-container-tags~="w1110"],
     [data-rem-container-tags~="w1140"],
     [data-rem-container-tags~="w1170"],
-    [data-rem-container-tags~="w1200"] {
+    [data-rem-container-tags~="w1200"],
+    [data-rem-container-tags~="w100"],
+    [data-rem-container-tags~="w200"],
+    [data-rem-container-tags~="w400"],
+    [data-rem-container-tags~="w500"],
+    [data-rem-container-tags~="w700"],
+    [data-rem-container-tags~="w800"],
+    [data-rem-container-tags~="w1000"],
+    [data-rem-container-tags~="w1100"] {
         > .tree-node--children {
             overflow-x: auto;
             white-space: pre;
         }
     }
 // Width Adjustment of Whole Table Content Cell
-    [data-rem-container-tags~="w30"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 30px;}
-    [data-rem-container-tags~="w60"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 60px;}
-    [data-rem-container-tags~="w90"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 90px;}
-    [data-rem-container-tags~="w120"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 120px;}
-    [data-rem-container-tags~="w150"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 150px;}
-    [data-rem-container-tags~="w180"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 180px;}
-    [data-rem-container-tags~="w210"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 210px;}
-    [data-rem-container-tags~="w240"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 240px;}
-    [data-rem-container-tags~="w270"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 270px;}
-    [data-rem-container-tags~="w300"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 300px;}
-    [data-rem-container-tags~="w330"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 330px;}
-    [data-rem-container-tags~="w360"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 360px;}
-    [data-rem-container-tags~="w390"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 390px;}
-    [data-rem-container-tags~="w420"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 420px;}
-    [data-rem-container-tags~="w450"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 450px;}
-    [data-rem-container-tags~="w480"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 480px;}
-    [data-rem-container-tags~="w510"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 510px;}
-    [data-rem-container-tags~="w540"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 540px;}
-    [data-rem-container-tags~="w570"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 570px;}
-    [data-rem-container-tags~="w600"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 600px;}
-    [data-rem-container-tags~="w630"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 630px;}
-    [data-rem-container-tags~="w660"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 660px;}
-    [data-rem-container-tags~="w690"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 690px;}
-    [data-rem-container-tags~="w720"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 720px;}
-    [data-rem-container-tags~="w750"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 750px;}
-    [data-rem-container-tags~="w780"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 780px;}
-    [data-rem-container-tags~="w810"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 810px;}
-    [data-rem-container-tags~="w840"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 840px;}
-    [data-rem-container-tags~="w870"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 870px;}
-    [data-rem-container-tags~="w900"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 900px;}
-    [data-rem-container-tags~="w930"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 930px;}
-    [data-rem-container-tags~="w960"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 960px;}
-    [data-rem-container-tags~="w990"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 990px;}
-    [data-rem-container-tags~="w1020"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1020px;}
-    [data-rem-container-tags~="w1050"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1050px;}
-    [data-rem-container-tags~="w1080"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1080px;}
-    [data-rem-container-tags~="w1110"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1110px;}
-    [data-rem-container-tags~="w1140"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1140px;}
-    [data-rem-container-tags~="w1170"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1170px;}
-    [data-rem-container-tags~="w1200"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: 1200px;}
+    @for $i from 1 through 40 {
+        [data-rem-container-tags~="w#{$i * 30}"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: #{$i * 30px};}
+    } 
+    @for $i from 1 through 12 {
+        [data-rem-container-tags~="w#{$i * 100}"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: #{$i * 100px};}
+    }
 // Width Adjustment of Individual Table Content Cell
     [data-rem-container-tags~="c1w200"],
     [data-rem-container-tags~="c1w400"],
@@ -585,547 +460,60 @@
             white-space: pre !important;
         }
     }
-    // 200
-        [data-rem-container-tags~="c1w200"] {
+    @for $i from 1 through 9 {
+        [data-rem-container-tags~="c#{$i}w200"] {
             > div.tree-node--children {
                 > div.animate-zoom-into-bullet {
                     > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(1) {
+                        > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
                             min-width: 200px;
                         }
                     }
                 }
             }
         }
-
-        [data-rem-container-tags~="c2w200"] {
+        [data-rem-container-tags~="c#{$i}w400"] {
             > div.tree-node--children {
                 > div.animate-zoom-into-bullet {
                     > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(2) {
-                            min-width: 200px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c3w200"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(3) {
-                            min-width: 200px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c4w200"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(4) {
-                            min-width: 200px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c5w200"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(5) {
-                            min-width: 200px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c6w200"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(6) {
-                            min-width: 200px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c7w200"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(7) {
-                            min-width: 200px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c8w200"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(8) {
-                            min-width: 200px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c9w200"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(9) {
-                            min-width: 200px;
-                        }
-                    }
-                }
-            }
-        }
-
-    // 400
-        [data-rem-container-tags~="c1w400"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(1) {
+                        > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
                             min-width: 400px;
                         }
                     }
                 }
             }
         }
-
-        [data-rem-container-tags~="c2w400"] {
+        [data-rem-container-tags~="c#{$i}w600"] {
             > div.tree-node--children {
                 > div.animate-zoom-into-bullet {
                     > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(2) {
-                            min-width: 400px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c3w400"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(3) {
-                            min-width: 400px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c4w400"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(4) {
-                            min-width: 400px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c5w400"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(5) {
-                            min-width: 400px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c6w400"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(6) {
-                            min-width: 400px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c7w400"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(7) {
-                            min-width: 400px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c8w400"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(8) {
-                            min-width: 400px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c9w400"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(9) {
-                            min-width: 400px;
-                        }
-                    }
-                }
-            }
-        }
-
-    // 600
-        [data-rem-container-tags~="c1w600"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(1) {
+                        > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
                             min-width: 600px;
                         }
                     }
                 }
             }
         }
-
-        [data-rem-container-tags~="c2w600"] {
+        [data-rem-container-tags~="c#{$i}w800"] {
             > div.tree-node--children {
                 > div.animate-zoom-into-bullet {
                     > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(2) {
-                            min-width: 600px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c3w600"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(3) {
-                            min-width: 600px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c4w600"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(4) {
-                            min-width: 600px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c5w600"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(5) {
-                            min-width: 600px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c6w600"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(6) {
-                            min-width: 600px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c7w600"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(7) {
-                            min-width: 600px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c8w600"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(8) {
-                            min-width: 600px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c9w600"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(9) {
-                            min-width: 600px;
-                        }
-                    }
-                }
-            }
-        }
-
-    // 800
-        [data-rem-container-tags~="c1w800"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(1) {
+                        > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
                             min-width: 800px;
                         }
                     }
                 }
             }
         }
-
-        [data-rem-container-tags~="c2w800"] {
+        [data-rem-container-tags~="c#{$i}w1000"] {
             > div.tree-node--children {
                 > div.animate-zoom-into-bullet {
                     > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(2) {
-                            min-width: 800px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c3w800"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(3) {
-                            min-width: 800px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c4w800"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(4) {
-                            min-width: 800px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c5w800"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(5) {
-                            min-width: 800px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c6w800"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(6) {
-                            min-width: 800px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c7w800"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(7) {
-                            min-width: 800px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c8w800"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(8) {
-                            min-width: 800px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c9w800"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(9) {
-                            min-width: 800px;
-                        }
-                    }
-                }
-            }
-        }
-
-    // 1000
-        [data-rem-container-tags~="c1w1000"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(1) {
+                        > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
                             min-width: 1000px;
                         }
                     }
                 }
             }
         }
-
-        [data-rem-container-tags~="c2w1000"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(2) {
-                            min-width: 1000px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c3w1000"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(3) {
-                            min-width: 1000px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c4w1000"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(4) {
-                            min-width: 1000px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c5w1000"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(5) {
-                            min-width: 1000px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c6w1000"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(6) {
-                            min-width: 1000px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c7w1000"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(7) {
-                            min-width: 1000px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c8w1000"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(8) {
-                            min-width: 1000px;
-                        }
-                    }
-                }
-            }
-        }
-
-        [data-rem-container-tags~="c9w1000"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(9) {
-                            min-width: 1000px;
-                        }
-                    }
-                }
-            }
-        }
+    }
