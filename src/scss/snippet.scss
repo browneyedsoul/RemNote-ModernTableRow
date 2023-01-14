@@ -213,6 +213,7 @@
                     border-left: unset;
                     padding-left: 0;
                     border: 0.07rem solid $table-border;
+                    overflow-y: hidden;
                     @media screen and (min-width: 320px) {
                         overflow-x: auto;
                         .rem-text {
