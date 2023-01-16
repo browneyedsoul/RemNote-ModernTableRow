@@ -9,7 +9,20 @@
     --table-border-dark: #525252;
     --table-scrollbar: #BBB;
     --table-scrollbar-dark: #222;
+    --table-bg-rd: #FFEEEB;
+    --table-bg-rd-dark: #572924;
+    --table-bg-or: #FFF0DD;
+    --table-bg-or-dark: #553D24;
+    --table-bg-yw: #FEFFD8;
+    --table-bg-yw-dark: #453E1E;
+    --table-bg-gr: #E7F8E9;
+    --table-bg-gr-dark: #253F27;
+    --table-bg-bl: #E4F3FD;
+    --table-bg-bl-dark: #183C4D;
+    --table-bg-vt: #F8EFFF;
+    --table-bg-vt-dark: #4A2B45;
 }
+
 // Making Table Width fit to content
     [data-rem-container-tags~="fit"] {
         display: inline-block;
@@ -25,7 +38,6 @@
             }
         }
     }
-
 // Hover Preview
     .popup-menu {
         #document-hover-preview__popup {
@@ -80,7 +92,13 @@
     $table-columnrow-bg,
     $table-cell-bg,
     $table-border,
-    $table-scrollbar
+    $table-scrollbar,
+    $table-bg-rd,
+    $table-bg-or,
+    $table-bg-yw,
+    $table-bg-gr,
+    $table-bg-bl,
+    $table-bg-vt
 ) {
     #hierarchy-editor {
         [data-rem-container-tags~="table90"],
@@ -259,6 +277,43 @@
                                     text-align: left;
                                     padding-left: 0em;
                                     height: 100%;
+                                    &:has(.highlight-color--red[data-rem-tags~="highlight"]) {
+                                        background-color: $table-bg-rd;
+                                        > span {
+                                            background-color: $table-bg-rd;
+                                        }
+                                    }
+                                    &:has(.highlight-color--orange[data-rem-tags~="highlight"]) {
+                                        background-color: $table-bg-or;
+                                        > span {
+                                            background-color: $table-bg-or;
+                                        }
+                                    }
+                                    &:has(.highlight-color--yellow[data-rem-tags~="highlight"]) {
+                                        background-color: $table-bg-yw;
+                                        > span {
+                                            background-color: $table-bg-yw;
+                                        }
+                                    }
+                                    &:has(.highlight-color--green[data-rem-tags~="highlight"]) {
+                                        background-color: $table-bg-gr;
+                                        > span {
+                                            background-color: $table-bg-gr;
+                                        }
+                                    }
+                                    &:has(.highlight-color--blue[data-rem-tags~="highlight"]) {
+                                        background-color: $table-bg-bl;
+                                        > span {
+                                            background-color: $table-bg-bl;
+                                        }
+                                    }
+                                    &:has(.highlight-color--purple[data-rem-tags~="highlight"]) {
+                                        background-color: $table-bg-vt;
+                                        > span {
+                                            background-color: $table-bg-vt;
+                                        } 
+                                    }
+
                                     > div[data-rem-tags~="highlight"] {
                                         height: 100%;
 
@@ -334,7 +389,13 @@
     var(--table-columnrow-bg), 
     var(--table-cell-bg), 
     var(--table-border),
-    var(--table-scrollbar)
+    var(--table-scrollbar),
+    var(--table-bg-rd),
+    var(--table-bg-or),
+    var(--table-bg-yw),
+    var(--table-bg-gr),
+    var(--table-bg-bl),
+    var(--table-bg-vt)
 );
 .dark {
     @include ModernTableRow(
@@ -342,13 +403,19 @@
         var(--table-columnrow-bg-dark), 
         var(--table-cell-bg-dark), 
         var(--table-border-dark),
-        var(--table-scrollbar-dark)
+        var(--table-scrollbar-dark),
+        var(--table-bg-rd-dark),
+        var(--table-bg-or-dark),
+        var(--table-bg-yw-dark),
+        var(--table-bg-gr-dark),
+        var(--table-bg-bl-dark),
+        var(--table-bg-vt-dark)
     );
 }
 // Table Row and Column Attribute Cell
     @for $i from 3 through 40 {
         [data-rem-container-tags~="table#{$i * 30}"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: #{$i * 30px} !important;}
-    }
+    } 
 // Table Grid Scrollable
     [data-rem-container-tags~="w30"],
     [data-rem-container-tags~="w60"],
