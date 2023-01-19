@@ -232,10 +232,10 @@
                     padding-left: 0;
                     border: 0.07rem solid $table-border;
                     overflow-y: hidden;
-                    @media screen and (min-width: 320px) {
+                    @media screen and (min-width: 280px) {
                         overflow-x: auto;
                         .rem-text {
-                            min-width: 180px !important;
+                            min-width: 60px !important;
                             word-break: break-all;
                         }
                     }
