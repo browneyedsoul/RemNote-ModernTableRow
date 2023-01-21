@@ -22,7 +22,14 @@
     --table-bg-vt: #F8EFFF;
     --table-bg-vt-dark: #4A2B45;
 }
-
+%bgcolorFix {
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    .mr-\[100px\] {
+        margin-right: unset;
+    }
+}
 // Making Table Width fit to content
     [data-rem-container-tags~="fit"] {
         display: inline-block;
@@ -282,11 +289,17 @@
                                         > span {
                                             background-color: $table-bg-rd;
                                         }
+                                        > .rem {
+                                            @extend %bgcolorFix;
+                                        }
                                     }
                                     &:has(.highlight-color--orange[data-rem-tags~="highlight"]) {
                                         background-color: $table-bg-or;
                                         > span {
                                             background-color: $table-bg-or;
+                                        }
+                                        > .rem {
+                                            @extend %bgcolorFix;
                                         }
                                     }
                                     &:has(.highlight-color--yellow[data-rem-tags~="highlight"]) {
@@ -294,11 +307,17 @@
                                         > span {
                                             background-color: $table-bg-yw;
                                         }
+                                        > .rem {
+                                            @extend %bgcolorFix;
+                                        }
                                     }
                                     &:has(.highlight-color--green[data-rem-tags~="highlight"]) {
                                         background-color: $table-bg-gr;
                                         > span {
                                             background-color: $table-bg-gr;
+                                        }
+                                        > .rem {
+                                            @extend %bgcolorFix;
                                         }
                                     }
                                     &:has(.highlight-color--blue[data-rem-tags~="highlight"]) {
@@ -306,12 +325,18 @@
                                         > span {
                                             background-color: $table-bg-bl;
                                         }
+                                        > .rem {
+                                            @extend %bgcolorFix;
+                                        }
                                     }
                                     &:has(.highlight-color--purple[data-rem-tags~="highlight"]) {
                                         background-color: $table-bg-vt;
                                         > span {
                                             background-color: $table-bg-vt;
                                         } 
+                                        > .rem {
+                                            @extend %bgcolorFix;
+                                        }
                                     }
 
                                     > div[data-rem-tags~="highlight"] {
