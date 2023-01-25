@@ -163,6 +163,11 @@ $LocalLeft: (
                             > div.tree-node--children {
                                 background-color: $table-cell-bg;
                                 flex-direction: row;
+                                > div.rn-editor-container {
+                                    > div.tree-node--children {
+                                        padding-left: 0;
+                                    }
+                                }
                             }
                         }
                     }
@@ -172,7 +177,7 @@ $LocalLeft: (
                         > div:last-of-type {
                             > div.rn-editor-container {
                                 > div.tree-node--parent {
-                                    // min-width: $px;
+                                    min-width: $px;
                                     max-width: $px;
                                 }
                             }
