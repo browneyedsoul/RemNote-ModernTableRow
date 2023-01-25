@@ -143,19 +143,22 @@ $LocalLeft: (
         #hierarchy-editor {
             #hierarchy-editor-inner {
                 > [data-rem-container-tags*="table"] {
+                    border-top: unset;
+                    border-left: unset;
                     > div:last-of-type {
                         > div.rn-editor-container {
                             display: flex;
                             flex-direction: row;
                             border-top: 0.07rem solid $table-border;
                             border-left: 0.07rem solid $table-border;
+                            border-right: 0.07rem solid $table-border;
                             &:first-child,
                             &:last-child,
                             &:nth-last-child(2) {
                                 display: none;
                             }
                             &:nth-last-child(3) {
-                                border-bottom: 0.07rem solid $table-border;
+                                border-bottom: 0.04rem solid $table-border;
                             }
                             > div.tree-node--parent {
                                 border-right: 0.07rem solid $table-border;
@@ -194,6 +197,7 @@ $LocalLeft: (
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
                 background-color: $table-columnrow-bg;
+                border: 0.07rem solid $table-border;
                 // Fix Global Flaw
                 .EditorContainer {
                     overflow-wrap: anywhere !important;
@@ -215,7 +219,7 @@ $LocalLeft: (
                 .animate-zoom-into-bullet.flex.flex-col {
                     display: block;
                     width: 100%;
-                    border-right: 0.07rem solid $table-border;
+                    // border-right: 0.07rem solid $table-border;
                 }
                 // Card In Table
                 .node-card-item {
@@ -270,7 +274,6 @@ $LocalLeft: (
                     grid-auto-rows: auto;
                     border-left: unset;
                     padding-left: 0;
-                    border: 0.07rem solid $table-border;
                     overflow-y: hidden;
                     @media screen and (min-width: 280px) {
                         overflow-x: auto;
