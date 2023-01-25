@@ -111,21 +111,6 @@ $LocalLeft: (
         }
     }
 }
-// Hover Preview
-.popup-menu {
-    #document-hover-preview__popup {
-        #hierarchy-editor {
-            @each $width in $TableWidths {
-                [data-rem-container-tags~="table#{$width}"] {
-                    .tree-node--children {
-                        white-space: unset;
-                    }
-                }
-            }
-        }
-    }
-}
-
 @mixin ModernTableRow(
     $table-title-bg,
     $table-columnrow-bg,
@@ -139,56 +124,61 @@ $LocalLeft: (
     $table-bg-bl,
     $table-bg-vt
 ) {
-    [data-document-tags^="table"] {
-        #hierarchy-editor {
-            #hierarchy-editor-inner {
-                > [data-rem-container-tags*="table"] {
-                    border-top: unset;
-                    border-left: unset;
-                    > div:last-of-type {
-                        > div.rn-editor-container {
-                            display: flex;
-                            flex-direction: row;
-                            border-top: 0.07rem solid $table-border;
-                            border-left: 0.07rem solid $table-border;
-                            border-right: 0.07rem solid $table-border;
-                            &:first-child,
-                            &:last-child,
-                            &:nth-last-child(2) {
-                                display: none;
-                            }
-                            &:nth-last-child(3) {
-                                border-bottom: 0.04rem solid $table-border;
-                            }
-                            > div.tree-node--parent {
-                                border-right: 0.07rem solid $table-border;
-                            }
-                            > div.tree-node--children {
-                                background-color: $table-cell-bg;
-                                flex-direction: row;
-                                > div.rn-editor-container {
-                                    > div.tree-node--children {
-                                        padding-left: 0;
-                                    }
-                                }
-                            }
+    %InnerTable {
+        #hierarchy-editor-inner {
+            > [data-rem-container-tags*="table"] {
+                border-top: unset;
+                border-left: unset;
+                > div:last-of-type {
+                    > div.rn-editor-container {
+                        display: flex;
+                        flex-direction: row !important;
+                        border-top: 0.07rem solid $table-border;
+                        border-left: 0.07rem solid $table-border;
+                        border-right: 0.07rem solid $table-border;
+                        &:first-child,
+                        &:last-child,
+                        &:nth-last-child(2) {
+                            display: none;
                         }
-                    }
-                }
-                @each $table, $px in $Tables {
-                    > [data-rem-container-tags*="table#{$table}"] {
-                        > div:last-of-type {
+                        &:nth-last-child(3) {
+                            border-bottom: 0.04rem solid $table-border;
+                        }
+                        > div.tree-node--parent {
+                            border-right: 0.07rem solid $table-border;
+                        }
+                        > div.tree-node--children {
+                            background-color: $table-cell-bg;
+                            flex-direction: row;
                             > div.rn-editor-container {
-                                > div.tree-node--parent {
-                                    min-width: $px;
-                                    max-width: $px;
+                                border-right: 0.07rem solid $table-border;
+                                > div.tree-node--children {
+                                    padding-left: 0;
                                 }
                             }
                         }
                     }
                 }
             }
+            @each $table, $px in $Tables {
+                > [data-rem-container-tags*="table#{$table}"] {
+                    > div:last-of-type {
+                        > div.rn-editor-container {
+                            > div.tree-node--parent {
+                                min-width: $px;
+                                max-width: $px;
+                            }
+                        }
+                    }
+                }
+            }
         }
+    }
+    .popup-menu {
+        @extend %InnerTable;
+    }
+    [data-document-tags^="table"] {
+        @extend %InnerTable;
     }
     #hierarchy-editor {
         @each $width in $TableWidths {
