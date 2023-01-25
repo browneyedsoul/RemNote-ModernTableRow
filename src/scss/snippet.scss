@@ -30,63 +30,93 @@
         margin-right: unset;
     }
 }
+%TagDeclutter {
+    .hierarchy-editor__tag-bar__tag {
+        color: transparent;
+        background-color: transparent !important;
+        span {
+            display: none;
+        }
+        .hierarchy-editor__tag-bar__tag__delete {
+            opacity: 0.2;
+            left: 12px;
+        }
+    }
+}
+$Tables: (
+    "90": 90px,
+    "120": 120px,
+    "150": 150px,
+    "180": 180px,
+    "210": 210px,
+    "240": 240px,
+    "270": 270px,
+    "300": 300px,
+    "330": 330px,
+    "360": 360px,
+    "390": 390px,
+    "420": 420px,
+    "450": 450px,
+    "480": 480px,
+    "510": 510px,
+    "540": 540px,
+    "570": 570px,
+    "600": 600px,
+    "660": 660px,
+    "690": 690px,
+    "720": 720px,
+    "750": 750px,
+    "780": 780px,
+    "810": 810px,
+    "840": 840px,
+    "870": 870px,
+    "900": 900px,
+    "930": 930px,
+    "960": 960px,
+    "990": 990px,
+    "1020": 1020px,
+    "1050": 1050px,
+    "1080": 1080px,
+    "1110": 1110px,
+    "1140": 1140px,
+    "1170": 1170px,
+    "1200": 1200px,
+);
+$TableWidths: 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 480, 510, 540, 570, 600, 630, 660, 690, 720, 750, 780, 810, 840, 870, 900, 930, 960, 990, 1020, 1050,
+    1080, 1110, 1140, 1170, 1200;
+$GlobalWidths: 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 480, 510, 540, 570, 600, 630, 660, 690, 720, 750, 780, 810, 840, 870, 900, 930, 960, 990,
+    1020, 1050, 1080, 1110, 1140, 1170, 1200, 100, 200, 400, 500, 700, 800, 1000, 1100;
+$LocalWidths: c1w200, c2w200, c3w200, c4w200, c5w200, c6w200, c7w200, c8w200, c9w200, c1w400, c2w400, c3w400, c4w400, c5w400, c6w400, c7w400, c8w400, c9w400, c1w600, c2w600, c3w600,
+    c4w600, c5w600, c6w600, c7w600, c8w600, c9w600, c1w800, c2w800, c3w800, c4w800, c5w800, c6w800, c7w800, c8w800, c9w800, c1w1000, c2w1000, c3w1000, c4w1000, c5w1000, c6w1000,
+    c7w1000, c8w1000, c9w1000;
+$LocalLeft: (
+    "200": 200px,
+    "400": 400px,
+    "600": 600px,
+    "800": 800px,
+    "1000": 1000px,
+);
 // Making Table Width fit to content
-    [data-rem-container-tags~="fit"] {
-        display: inline-block;
-        width: fit-content;
-        > .tree-node--children {
-            > .animate-zoom-into-bullet:first-child {
-                > .tree-node--children {
-                    .RichTextViewer,
-                    .rich-text-editor > div {
-                        white-space: unset !important;
-                    }
+[data-rem-container-tags~="fit"] {
+    display: inline-block;
+    width: fit-content;
+    > .tree-node--children {
+        > .animate-zoom-into-bullet:first-child {
+            > .tree-node--children {
+                .RichTextViewer,
+                .rich-text-editor > div {
+                    white-space: unset !important;
                 }
             }
         }
     }
+}
 // Hover Preview
-    .popup-menu {
-        #document-hover-preview__popup {
-            #hierarchy-editor {
-                [data-rem-container-tags~="table90"],
-                [data-rem-container-tags~="table120"],
-                [data-rem-container-tags~="table150"],
-                [data-rem-container-tags~="table180"],
-                [data-rem-container-tags~="table210"],
-                [data-rem-container-tags~="table240"],
-                [data-rem-container-tags~="table270"],
-                [data-rem-container-tags~="table300"],
-                [data-rem-container-tags~="table330"],
-                [data-rem-container-tags~="table360"],
-                [data-rem-container-tags~="table390"],
-                [data-rem-container-tags~="table420"],
-                [data-rem-container-tags~="table450"],
-                [data-rem-container-tags~="table480"],
-                [data-rem-container-tags~="table510"],
-                [data-rem-container-tags~="table540"],
-                [data-rem-container-tags~="table570"],
-                [data-rem-container-tags~="table600"],
-                [data-rem-container-tags~="table630"],
-                [data-rem-container-tags~="table660"],
-                [data-rem-container-tags~="table690"],
-                [data-rem-container-tags~="table720"],
-                [data-rem-container-tags~="table750"],
-                [data-rem-container-tags~="table780"],
-                [data-rem-container-tags~="table810"],
-                [data-rem-container-tags~="table840"],
-                [data-rem-container-tags~="table870"],
-                [data-rem-container-tags~="table900"],
-                [data-rem-container-tags~="table930"],
-                [data-rem-container-tags~="table960"],
-                [data-rem-container-tags~="table990"],
-                [data-rem-container-tags~="table1020"],
-                [data-rem-container-tags~="table1050"],
-                [data-rem-container-tags~="table1080"],
-                [data-rem-container-tags~="table1110"],
-                [data-rem-container-tags~="table1140"],
-                [data-rem-container-tags~="table1170"],
-                [data-rem-container-tags~="table1200"] {
+.popup-menu {
+    #document-hover-preview__popup {
+        #hierarchy-editor {
+            @each $width in $TableWidths {
+                [data-rem-container-tags~="table#{$width}"] {
                     .tree-node--children {
                         white-space: unset;
                     }
@@ -94,6 +124,8 @@
             }
         }
     }
+}
+
 @mixin ModernTableRow(
     $table-title-bg,
     $table-columnrow-bg,
@@ -107,50 +139,57 @@
     $table-bg-bl,
     $table-bg-vt
 ) {
+    [data-document-tags^="table"] {
+        #hierarchy-editor {
+            #hierarchy-editor-inner {
+                > [data-rem-container-tags*="table"] {
+                    > div:last-of-type {
+                        > div.rn-editor-container {
+                            display: flex;
+                            flex-direction: row;
+                            border-top: 0.07rem solid $table-border;
+                            border-left: 0.07rem solid $table-border;
+                            &:first-child,
+                            &:last-child,
+                            &:nth-last-child(2) {
+                                display: none;
+                            }
+                            &:nth-last-child(3) {
+                                border-bottom: 0.07rem solid $table-border;
+                            }
+                            > div.tree-node--parent {
+                                border-right: 0.07rem solid $table-border;
+                            }
+                            > div.tree-node--children {
+                                background-color: $table-cell-bg;
+                                flex-direction: row;
+                            }
+                        }
+                    }
+                }
+                @each $table, $px in $Tables {
+                    > [data-rem-container-tags*="table#{$table}"] {
+                        > div:last-of-type {
+                            > div.rn-editor-container {
+                                > div.tree-node--parent {
+                                    // min-width: $px;
+                                    max-width: $px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     #hierarchy-editor {
-        [data-rem-container-tags~="table90"],
-        [data-rem-container-tags~="table120"],
-        [data-rem-container-tags~="table150"],
-        [data-rem-container-tags~="table180"],
-        [data-rem-container-tags~="table210"],
-        [data-rem-container-tags~="table240"],
-        [data-rem-container-tags~="table270"],
-        [data-rem-container-tags~="table300"],
-        [data-rem-container-tags~="table330"],
-        [data-rem-container-tags~="table360"],
-        [data-rem-container-tags~="table390"],
-        [data-rem-container-tags~="table420"],
-        [data-rem-container-tags~="table450"],
-        [data-rem-container-tags~="table480"],
-        [data-rem-container-tags~="table510"],
-        [data-rem-container-tags~="table540"],
-        [data-rem-container-tags~="table570"],
-        [data-rem-container-tags~="table600"],
-        [data-rem-container-tags~="table630"],
-        [data-rem-container-tags~="table660"],
-        [data-rem-container-tags~="table690"],
-        [data-rem-container-tags~="table720"],
-        [data-rem-container-tags~="table750"],
-        [data-rem-container-tags~="table780"],
-        [data-rem-container-tags~="table810"],
-        [data-rem-container-tags~="table840"],
-        [data-rem-container-tags~="table870"],
-        [data-rem-container-tags~="table900"],
-        [data-rem-container-tags~="table930"],
-        [data-rem-container-tags~="table960"],
-        [data-rem-container-tags~="table990"],
-        [data-rem-container-tags~="table1020"],
-        [data-rem-container-tags~="table1050"],
-        [data-rem-container-tags~="table1080"],
-        [data-rem-container-tags~="table1110"],
-        [data-rem-container-tags~="table1140"],
-        [data-rem-container-tags~="table1170"],
-        [data-rem-container-tags~="table1200"] {
-            margin: 0.5rem 0 0.5rem 1.5rem;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            background-color: $table-columnrow-bg;
-            // Fix Global Flaw
+        @each $width in $TableWidths {
+            [data-rem-container-tags~="table#{$width}"] {
+                margin: 0.5rem 0 0.5rem 1.5rem;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                background-color: $table-columnrow-bg;
+                // Fix Global Flaw
                 .EditorContainer {
                     overflow-wrap: anywhere !important;
                 }
@@ -158,26 +197,28 @@
                     min-width: 50px;
                 }
                 // Remove Placeholder(Empty Rem)
-                    .text-gray-20 {
-                        display: none;
-                    }
+                .text-gray-20 {
+                    display: none;
+                }
                 // Codenode
-                    #code-node {
-                        > span[data-linear-editor-editable-leaf~=true] {
-                            white-space: pre-wrap;
-                        }
+                #code-node {
+                    > span[data-linear-editor-editable-leaf~="true"] {
+                        white-space: pre-wrap;
                     }
+                }
                 // 1.8.18
-                    .animate-zoom-into-bullet.flex.flex-col {
-                        display: block;
-                    }
-            // Card In Table
+                .animate-zoom-into-bullet.flex.flex-col {
+                    display: block;
+                    width: 100%;
+                    border-right: 0.07rem solid $table-border;
+                }
+                // Card In Table
                 .node-card-item {
                     &::before {
                         margin-left: unset;
                     }
                 }
-            // Remove Bullet
+                // Remove Bullet
                 .perfect-circle__inner {
                     // .rem-bullet__ring {
 
@@ -186,7 +227,7 @@
                         fill: transparent;
                     }
                 }
-            // Table Column Color Preset
+                // Table Column Color Preset
                 .tree-node--children {
                     border-color: $table-columnrow-bg;
                     border-left: 0;
@@ -194,7 +235,7 @@
                     margin-right: 0;
                     left: 0;
                 }
-            // Table Title
+                // Table Title
                 > :first-child {
                     border: 0.07rem solid $table-border;
                     border-bottom: unset;
@@ -203,7 +244,7 @@
                     border-top-left-radius: 4px;
                     border-top-right-radius: 4px;
                 }
-            // Table Column Color Preset
+                // Table Column Color Preset
                 [data-rem-container-tags~="th"],
                 [data-rem-container-tags~="th"] > .tree-node--children > .animate-zoom-into-bullet,
                 [data-rem-container-tags~="tablecolor"] {
@@ -216,22 +257,9 @@
                             height: 100%;
                         }
                     }
-                    // Declutter Tag
-                    .hierarchy-editor__tag-bar__tag {
-                        color: transparent;
-                        background-color: transparent !important;
-
-                        span {
-                            display: none;
-                        }
-
-                        .hierarchy-editor__tag-bar__tag__delete {
-                            opacity: .2;
-                            left: 12px;
-                        }
-                    }
+                    @extend %TagDeclutter;
                 }
-            // Table Grid Scrollable
+                // Table Grid Scrollable
                 > .tree-node--children {
                     display: grid;
                     grid-auto-rows: auto;
@@ -250,169 +278,170 @@
                         border-right: unset;
                     }
                     // Scrollbar
-                        &::-webkit-scrollbar-thumb {
-                            background-color: $table-scrollbar;
-                            border-radius: 2px;
-                        }
-                        &::-webkit-scrollbar-track {
-                            background-color: $table-title-bg;
-                        }
+                    &::-webkit-scrollbar-thumb {
+                        background-color: $table-scrollbar;
+                        border-radius: 2px;
+                    }
+                    &::-webkit-scrollbar-track {
+                        background-color: $table-title-bg;
+                    }
                     // Remove Overflow Content
-                        .right-\[-4px\] {
-                            right: 4px;
-                        }
-                        .float-end {
-                            display: none;
-                        }
-                        [data-icon~="merge"] {
-                            display: none;
-                        }
+                    .right-\[-4px\] {
+                        right: 4px;
+                    }
+                    .float-end {
+                        display: none;
+                    }
+                    [data-icon~="merge"] {
+                        display: none;
+                    }
                     // Table Row and Column
-                        > .animate-zoom-into-bullet {
-                            // Table all the horizontal lines
-                                border-bottom: 0.07rem solid $table-border;
-                                border-left: unset;
+                    > .animate-zoom-into-bullet {
+                        // Table all the horizontal lines
+                        border-bottom: 0.07rem solid $table-border;
+                        border-left: unset;
 
-                                &:last-of-type {
-                                    border-bottom: unset;
-                                }
-                            // Table Left Cell
-                                > .tree-node--parent {
-                                    float: left;
-                                    font-weight: 550;
-                                    background-color: $table-columnrow-bg;
-                                    text-align: left;
-                                    padding-left: 0em;
-                                    height: 100%;
-                                    &:has(.highlight-color--red[data-rem-tags~="highlight"]) {
-                                        background-color: $table-bg-rd;
-                                        > span {
-                                            background-color: $table-bg-rd;
-                                        }
-                                        > .rem {
-                                            @extend %bgcolorFix;
-                                        }
-                                    }
-                                    &:has(.highlight-color--orange[data-rem-tags~="highlight"]) {
-                                        background-color: $table-bg-or;
-                                        > span {
-                                            background-color: $table-bg-or;
-                                        }
-                                        > .rem {
-                                            @extend %bgcolorFix;
-                                        }
-                                    }
-                                    &:has(.highlight-color--yellow[data-rem-tags~="highlight"]) {
-                                        background-color: $table-bg-yw;
-                                        > span {
-                                            background-color: $table-bg-yw;
-                                        }
-                                        > .rem {
-                                            @extend %bgcolorFix;
-                                        }
-                                    }
-                                    &:has(.highlight-color--green[data-rem-tags~="highlight"]) {
-                                        background-color: $table-bg-gr;
-                                        > span {
-                                            background-color: $table-bg-gr;
-                                        }
-                                        > .rem {
-                                            @extend %bgcolorFix;
-                                        }
-                                    }
-                                    &:has(.highlight-color--blue[data-rem-tags~="highlight"]) {
-                                        background-color: $table-bg-bl;
-                                        > span {
-                                            background-color: $table-bg-bl;
-                                        }
-                                        > .rem {
-                                            @extend %bgcolorFix;
-                                        }
-                                    }
-                                    &:has(.highlight-color--purple[data-rem-tags~="highlight"]) {
-                                        background-color: $table-bg-vt;
-                                        > span {
-                                            background-color: $table-bg-vt;
-                                        } 
-                                        > .rem {
-                                            @extend %bgcolorFix;
-                                        }
-                                    }
-
-                                    > div[data-rem-tags~="highlight"] {
-                                        height: 100%;
-
-                                        > div {
-                                            height: 100%;
-                                            > span {
-                                                height: 100%;
-                                            }
-                                        }
-                                    }
-                                }
-                            // Table Content Cell
-                                > .tree-node--children {
-                                    display: flex;
-                                    flex-direction: row;
-                                    text-align: left;
-                                    height: 100%;
-                                    padding-left: 0;
-                                    &::-webkit-scrollbar-track {
-                                        margin-left: 1rem;
-                                    }
-                                    > .animate-zoom-into-bullet {
-                                        background-color: $table-cell-bg;
-                                        border-left: 0.07rem solid $table-border;
-                                        flex: 1 1 0;
-                                        padding-right: 0;
-                                        // width: 98%; This was a remedy for codeblock overflow but harmed whole table width control
-                                        > div.tree-node--children {
-                                            padding-left: 0;
-                                            > div {
-                                                > div {
-                                                    > span {
-                                                        padding-right: 1.2rem;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        // For Selecting Dense-width Cell Text Eclipsed with Rem-container
-                                            .rich-text-editor {
-                                                z-index: 1;
-                                            }
-                                        // Codeblock Treatment
-                                            #code-node {
-                                                overflow-x: unset;
-                                                white-space: unset;
-                                            }
-                                    }
-                                }
+                        &:last-of-type {
+                            border-bottom: unset;
                         }
-                    // Table Cell Hightlight Right Margin
-                        [data-rem-tags~="highlight"] {
-                            margin-right: 0;
+                        // Table Left Cell
+                        > .tree-node--parent {
+                            float: left;
+                            font-weight: 550;
+                            background-color: $table-columnrow-bg;
+                            text-align: left;
+                            padding-left: 0em;
+                            height: 100%;
+                            &:has(.highlight-color--red[data-rem-tags~="highlight"]) {
+                                background-color: $table-bg-rd;
+                                > span {
+                                    background-color: $table-bg-rd;
+                                }
+                                > .rem {
+                                    @extend %bgcolorFix;
+                                }
+                            }
+                            &:has(.highlight-color--orange[data-rem-tags~="highlight"]) {
+                                background-color: $table-bg-or;
+                                > span {
+                                    background-color: $table-bg-or;
+                                }
+                                > .rem {
+                                    @extend %bgcolorFix;
+                                }
+                            }
+                            &:has(.highlight-color--yellow[data-rem-tags~="highlight"]) {
+                                background-color: $table-bg-yw;
+                                > span {
+                                    background-color: $table-bg-yw;
+                                }
+                                > .rem {
+                                    @extend %bgcolorFix;
+                                }
+                            }
+                            &:has(.highlight-color--green[data-rem-tags~="highlight"]) {
+                                background-color: $table-bg-gr;
+                                > span {
+                                    background-color: $table-bg-gr;
+                                }
+                                > .rem {
+                                    @extend %bgcolorFix;
+                                }
+                            }
+                            &:has(.highlight-color--blue[data-rem-tags~="highlight"]) {
+                                background-color: $table-bg-bl;
+                                > span {
+                                    background-color: $table-bg-bl;
+                                }
+                                > .rem {
+                                    @extend %bgcolorFix;
+                                }
+                            }
+                            &:has(.highlight-color--purple[data-rem-tags~="highlight"]) {
+                                background-color: $table-bg-vt;
+                                > span {
+                                    background-color: $table-bg-vt;
+                                }
+                                > .rem {
+                                    @extend %bgcolorFix;
+                                }
+                            }
 
-                            .highlight-color--red,
-                            .highlight-color--orange,
-                            .highlight-color--yellow,
-                            .highlight-color--green,
-                            .highlight-color--blue,
-                            .highlight-color--purple {
-                                padding: 0;
+                            > div[data-rem-tags~="highlight"] {
+                                height: 100%;
+
+                                > div {
+                                    height: 100%;
+                                    > span {
+                                        height: 100%;
+                                    }
+                                }
                             }
                         }
+                        // Table Content Cell
+                        > .tree-node--children {
+                            display: flex;
+                            flex-direction: row;
+                            text-align: left;
+                            height: 100%;
+                            padding-left: 0;
+                            &::-webkit-scrollbar-track {
+                                margin-left: 1rem;
+                            }
+                            > .animate-zoom-into-bullet {
+                                background-color: $table-cell-bg;
+                                border-left: 0.07rem solid $table-border;
+                                flex: 1 1 0;
+                                padding-right: 0;
+                                // width: 98%; This was a remedy for codeblock overflow but harmed whole table width control
+                                > div.tree-node--children {
+                                    padding-left: 0;
+                                    > div {
+                                        > div {
+                                            > span {
+                                                padding-right: 1.2rem;
+                                            }
+                                        }
+                                    }
+                                }
+                                // For Selecting Dense-width Cell Text Eclipsed with Rem-container
+                                .rich-text-editor {
+                                    z-index: 1;
+                                }
+                                // Codeblock Treatment
+                                #code-node {
+                                    overflow-x: unset;
+                                    white-space: unset;
+                                }
+                            }
+                        }
+                    }
+                    // Table Cell Hightlight Right Margin
+                    [data-rem-tags~="highlight"] {
+                        margin-right: 0;
+
+                        .highlight-color--red,
+                        .highlight-color--orange,
+                        .highlight-color--yellow,
+                        .highlight-color--green,
+                        .highlight-color--blue,
+                        .highlight-color--purple {
+                            padding: 0;
+                        }
+                    }
                 }
-            // Aliases in table cell
+                // Aliases in table cell
                 [data-rem-container-tags~="aliases"] {
                     margin-right: 0;
                 }
+            }
         }
     }
 }
 @include ModernTableRow(
-    var(--table-title-bg), 
-    var(--table-columnrow-bg), 
-    var(--table-cell-bg), 
+    var(--table-title-bg),
+    var(--table-columnrow-bg),
+    var(--table-cell-bg),
     var(--table-border),
     var(--table-scrollbar),
     var(--table-bg-rd),
@@ -424,9 +453,9 @@
 );
 .dark {
     @include ModernTableRow(
-        var(--table-title-bg-dark), 
-        var(--table-columnrow-bg-dark), 
-        var(--table-cell-bg-dark), 
+        var(--table-title-bg-dark),
+        var(--table-columnrow-bg-dark),
+        var(--table-cell-bg-dark),
         var(--table-border-dark),
         var(--table-scrollbar-dark),
         var(--table-bg-rd-dark),
@@ -438,175 +467,52 @@
     );
 }
 // Table Row and Column Attribute Cell
-    @for $i from 3 through 40 {
-        [data-rem-container-tags~="table#{$i * 30}"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {width: #{$i * 30px} !important;}
-    } 
+@for $i from 3 through 40 {
+    [data-rem-container-tags~="table#{$i * 30}"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {
+        width: #{$i * 30px} !important;
+    }
+}
 // Table Grid Scrollable
-    [data-rem-container-tags~="w30"],
-    [data-rem-container-tags~="w60"],
-    [data-rem-container-tags~="w90"],
-    [data-rem-container-tags~="w120"],
-    [data-rem-container-tags~="w150"],
-    [data-rem-container-tags~="w180"],
-    [data-rem-container-tags~="w210"],
-    [data-rem-container-tags~="w240"],
-    [data-rem-container-tags~="w270"],
-    [data-rem-container-tags~="w300"],
-    [data-rem-container-tags~="w330"],
-    [data-rem-container-tags~="w360"],
-    [data-rem-container-tags~="w390"],
-    [data-rem-container-tags~="w420"],
-    [data-rem-container-tags~="w450"],
-    [data-rem-container-tags~="w480"],
-    [data-rem-container-tags~="w510"],
-    [data-rem-container-tags~="w540"],
-    [data-rem-container-tags~="w570"],
-    [data-rem-container-tags~="w600"],
-    [data-rem-container-tags~="w630"],
-    [data-rem-container-tags~="w660"],
-    [data-rem-container-tags~="w690"],
-    [data-rem-container-tags~="w720"],
-    [data-rem-container-tags~="w750"],
-    [data-rem-container-tags~="w780"],
-    [data-rem-container-tags~="w810"],
-    [data-rem-container-tags~="w840"],
-    [data-rem-container-tags~="w870"],
-    [data-rem-container-tags~="w900"],
-    [data-rem-container-tags~="w930"],
-    [data-rem-container-tags~="w960"],
-    [data-rem-container-tags~="w990"],
-    [data-rem-container-tags~="w1020"],
-    [data-rem-container-tags~="w1050"],
-    [data-rem-container-tags~="w1080"],
-    [data-rem-container-tags~="w1110"],
-    [data-rem-container-tags~="w1140"],
-    [data-rem-container-tags~="w1170"],
-    [data-rem-container-tags~="w1200"],
-    [data-rem-container-tags~="w100"],
-    [data-rem-container-tags~="w200"],
-    [data-rem-container-tags~="w400"],
-    [data-rem-container-tags~="w500"],
-    [data-rem-container-tags~="w700"],
-    [data-rem-container-tags~="w800"],
-    [data-rem-container-tags~="w1000"],
-    [data-rem-container-tags~="w1100"] {
+@each $width in $GlobalWidths {
+    [data-rem-container-tags~="w#{$width}"] {
         > .tree-node--children {
             overflow-x: auto;
             white-space: pre;
         }
     }
+}
 // Width Adjustment of Whole Table Content Cell
-    @for $i from 1 through 40 {
-        [data-rem-container-tags~="w#{$i * 30}"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: #{$i * 30px};}
-    } 
-    @for $i from 1 through 12 {
-        [data-rem-container-tags~="w#{$i * 100}"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {width: #{$i * 100px};}
+@for $i from 1 through 40 {
+    [data-rem-container-tags~="w#{$i * 30}"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {
+        width: #{$i * 30px};
     }
+}
+@for $i from 1 through 12 {
+    [data-rem-container-tags~="w#{$i * 100}"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {
+        width: #{$i * 100px};
+    }
+}
 // Width Adjustment of Individual Table Content Cell
-    [data-rem-container-tags~="c1w200"],
-    [data-rem-container-tags~="c1w400"],
-    [data-rem-container-tags~="c1w600"],
-    [data-rem-container-tags~="c1w800"],
-    [data-rem-container-tags~="c1w1000"],
-    [data-rem-container-tags~="c2w200"],
-    [data-rem-container-tags~="c2w400"],
-    [data-rem-container-tags~="c2w600"],
-    [data-rem-container-tags~="c2w800"],
-    [data-rem-container-tags~="c2w1000"],
-    [data-rem-container-tags~="c3w200"],
-    [data-rem-container-tags~="c3w400"],
-    [data-rem-container-tags~="c3w600"],
-    [data-rem-container-tags~="c3w800"],
-    [data-rem-container-tags~="c3w1000"],
-    [data-rem-container-tags~="c4w200"],
-    [data-rem-container-tags~="c4w400"],
-    [data-rem-container-tags~="c4w600"],
-    [data-rem-container-tags~="c4w800"],
-    [data-rem-container-tags~="c4w1000"],
-    [data-rem-container-tags~="c5w200"],
-    [data-rem-container-tags~="c5w400"],
-    [data-rem-container-tags~="c5w600"],
-    [data-rem-container-tags~="c5w800"],
-    [data-rem-container-tags~="c5w1000"],
-    [data-rem-container-tags~="c6w200"],
-    [data-rem-container-tags~="c6w400"],
-    [data-rem-container-tags~="cw600"],
-    [data-rem-container-tags~="c6w800"],
-    [data-rem-container-tags~="c6w1000"],
-    [data-rem-container-tags~="c7w200"],
-    [data-rem-container-tags~="c7w400"],
-    [data-rem-container-tags~="c7w600"],
-    [data-rem-container-tags~="c7w800"],
-    [data-rem-container-tags~="c7w1000"],
-    [data-rem-container-tags~="c8w200"],
-    [data-rem-container-tags~="c8w400"],
-    [data-rem-container-tags~="c8w600"],
-    [data-rem-container-tags~="c8w800"],
-    [data-rem-container-tags~="c8w1000"],
-    [data-rem-container-tags~="c9w200"],
-    [data-rem-container-tags~="c9w400"],
-    [data-rem-container-tags~="c9w600"],
-    [data-rem-container-tags~="c9w800"],
-    [data-rem-container-tags~="c9w1000"] {
+@each $width in $LocalWidths {
+    [data-rem-container-tags~="#{$width}"] {
         > div.tree-node--children {
             overflow-x: auto !important;
             white-space: pre !important;
         }
     }
-    @for $i from 1 through 9 {
-        [data-rem-container-tags~="c#{$i}w200"] {
+}
+@for $i from 1 through 9 {
+    @each $width, $px in $LocalLeft {
+        [data-rem-container-tags~="c#{$i}w#{$width}"] {
             > div.tree-node--children {
                 > div.animate-zoom-into-bullet {
                     > div.tree-node--children {
                         > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
-                            min-width: 200px;
-                        }
-                    }
-                }
-            }
-        }
-        [data-rem-container-tags~="c#{$i}w400"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
-                            min-width: 400px;
-                        }
-                    }
-                }
-            }
-        }
-        [data-rem-container-tags~="c#{$i}w600"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
-                            min-width: 600px;
-                        }
-                    }
-                }
-            }
-        }
-        [data-rem-container-tags~="c#{$i}w800"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
-                            min-width: 800px;
-                        }
-                    }
-                }
-            }
-        }
-        [data-rem-container-tags~="c#{$i}w1000"] {
-            > div.tree-node--children {
-                > div.animate-zoom-into-bullet {
-                    > div.tree-node--children {
-                        > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
-                            min-width: 1000px;
+                            min-width: $px;
                         }
                     }
                 }
             }
         }
     }
+}
