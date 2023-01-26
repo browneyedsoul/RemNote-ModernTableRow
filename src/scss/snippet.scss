@@ -178,7 +178,7 @@ $LocalLeft: (
     .popup-menu {
         @extend %InnerTable;
     }
-    [data-document-tags^="table"] {
+    [data-document-tags*="table"] {
         @extend %InnerTable;
     }
     #hierarchy-editor {
