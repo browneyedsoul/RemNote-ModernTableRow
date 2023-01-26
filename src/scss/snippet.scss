@@ -150,6 +150,7 @@ $LocalLeft: (
                         > div.tree-node--children {
                             background-color: $table-cell-bg;
                             flex-direction: row;
+                            padding-left: 0;
                             > div.rn-editor-container {
                                 border-right: 0.07rem solid $table-border;
                                 > div.tree-node--children {
