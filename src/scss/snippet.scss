@@ -126,35 +126,37 @@ $LocalLeft: (
 ) {
     %InnerTable {
         #hierarchy-editor-inner {
-            > [data-rem-container-tags*="table"] {
-                border-top: unset;
-                border-left: unset;
-                > div:last-of-type {
-                    > div.rn-editor-container {
-                        display: flex;
-                        flex-direction: row !important;
-                        border-top: 0.07rem solid $table-border;
-                        border-left: 0.07rem solid $table-border;
-                        border-right: 0.07rem solid $table-border;
-                        &:first-child,
-                        &:last-child,
-                        &:nth-last-child(2) {
-                            display: none;
-                        }
-                        &:nth-last-child(3) {
-                            border-bottom: 0.04rem solid $table-border;
-                        }
-                        > div.tree-node--parent {
+            @for $i from 3 through 40 {
+                > [data-rem-container-tags~="table#{$i * 30}"] {
+                    border-top: unset;
+                    border-left: unset;
+                    > div:last-of-type {
+                        > div.rn-editor-container {
+                            display: flex;
+                            flex-direction: row !important;
+                            border-top: 0.07rem solid $table-border;
+                            border-left: 0.07rem solid $table-border;
                             border-right: 0.07rem solid $table-border;
-                        }
-                        > div.tree-node--children {
-                            background-color: $table-cell-bg;
-                            flex-direction: row;
-                            padding-left: 0;
-                            > div.rn-editor-container {
+                            &:first-child,
+                            &:last-child,
+                            &:nth-last-child(2) {
+                                display: none;
+                            }
+                            &:nth-last-child(3) {
+                                border-bottom: 0.04rem solid $table-border;
+                            }
+                            > div.tree-node--parent {
                                 border-right: 0.07rem solid $table-border;
-                                > div.tree-node--children {
-                                    padding-left: 0;
+                            }
+                            > div.tree-node--children {
+                                background-color: $table-cell-bg;
+                                flex-direction: row;
+                                padding-left: 0;
+                                > div.rn-editor-container {
+                                    border-right: 0.07rem solid $table-border;
+                                    > div.tree-node--children {
+                                        padding-left: 0;
+                                    }
                                 }
                             }
                         }
