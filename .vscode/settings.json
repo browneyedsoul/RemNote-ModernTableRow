@@ -7,23 +7,6 @@
     "prettier.tabWidth": 2,
     "prettier.bracketSameLine": false,
     "prettier.printWidth": 120,
-    "liveSassCompile.settings.formats": [
-        {
-            "extensionName": ".css",
-            "format": "compressed",
-            "savePath": "~/..",
-        },
-    ],
-    "liveSassCompile.settings.excludeList": [
-        "/**/node_modules/**",
-        "/.vscode/**",
-    ],
-    "liveSassCompile.settings.generateMap": false,
-    "liveSassCompile.settings.watchOnLaunch": false,
-    "liveSassCompile.settings.compileOnWatch": false,
-    "liveSassCompile.settings.autoprefix": [
-        "defaults"
-    ],
     "[scss]": {
         "editor.foldingStrategy": "indentation",
         "editor.suggest.insertMode": "replace",
