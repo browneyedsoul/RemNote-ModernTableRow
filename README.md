@@ -71,6 +71,7 @@ Make your Rem Table with simple tags!
 - 'c2' means column 2
 - ...
 - List
+
   | Available Column Width | Tags for tuning local column width with 200px interval |
   | ------------- | ------------- |
   | 200px | `c1w200` `c2w200`, `c3w200`, `c4w200`, `c5w200`, ... , `c9w200`  |
@@ -96,7 +97,7 @@ Make your Rem Table with simple tags!
 
 ## Turning a Row table cell into a Column Table cell
   
-- You can now make seperated table-row column by simple indenting under a top level rem in a table cell
+- You can make a seperated table-row column by simple indenting under a top level rem in a table cell
 - Demo
   
   <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/row-to-column.webp">
