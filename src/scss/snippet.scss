@@ -210,7 +210,10 @@ $LocalLeft: (
                 .animate-zoom-into-bullet.flex.flex-col {
                     display: block;
                     width: 100%;
-                    // border-right: 0.07rem solid $table-border;
+                    &[data-rem-container-tags*="table"] {
+                        margin-right: 0.5rem;
+                        width: unset;
+                    }
                 }
                 // Card In Table
                 .node-card-item {
