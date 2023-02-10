@@ -211,6 +211,7 @@ $LocalLeft: (
                 }
                 // Codenode
                 #code-node {
+                    white-space: pre-wrap;
                     > span[data-linear-editor-editable-leaf~="true"] {
                         white-space: pre-wrap;
                     }
