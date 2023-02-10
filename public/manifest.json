@@ -9,13 +9,13 @@
   "version": {
     "major": 1,
     "minor": 6,
-    "patch": 2
+    "patch": 3
   },
   "requestNative": true,
   "requiredScopes": [
     {
       "type": "All",
-      "level": "Read"
+      "level": "ReadCreateModify"
     }
   ]
 }
