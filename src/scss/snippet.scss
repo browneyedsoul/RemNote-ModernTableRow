@@ -96,7 +96,6 @@ $LocalLeft: (
     "800": 800px,
     "1000": 1000px,
 );
-// Making Table Width fit to content
 [data-rem-container-tags~="fit"] {
     display: inline-block;
     width: fit-content;
@@ -108,6 +107,14 @@ $LocalLeft: (
                     white-space: unset !important;
                 }
             }
+        }
+    }
+}
+#hierarchy-editor {
+    div[data-rem-container-tags*="table"] {
+        .animate-zoom-into-bullet.flex.flex-col[data-rem-container-tags*="callout"] {
+            width: unset;
+            margin-right: 0.5rem;
         }
     }
 }
