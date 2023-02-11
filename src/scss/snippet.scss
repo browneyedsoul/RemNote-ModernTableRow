@@ -144,9 +144,7 @@ $LocalLeft: (
                             border-top: 0.07rem solid $table-border;
                             border-left: 0.07rem solid $table-border;
                             border-right: 0.07rem solid $table-border;
-                            &:first-child,
-                            &:last-child,
-                            &:nth-last-child(2) {
+                            &:not([data-rem-container-id]) {
                                 display: none;
                             }
                             &:nth-last-child(3) {
