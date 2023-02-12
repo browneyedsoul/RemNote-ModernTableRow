@@ -2,7 +2,17 @@ import {declareIndexPlugin, ReactRNPlugin} from "@remnote/plugin-sdk";
 
 export const [TABLE, WIDTH] = ["table", "width"];
 
+let TableCSS = ``;
+
 async function onActivate(plugin: ReactRNPlugin) {
+  await fetch("https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/src/snippet.css")
+    .then((response) => response.text())
+    .then((text) => {
+      TableCSS = text;
+      console.log(TableCSS);
+    })
+    .catch((error) => console.error(error));
+  await plugin.app.registerCSS("rem-tree", TableCSS);
   await plugin.app.registerPowerup("Table", TABLE, "Attribute Column Width", {
     slots: [
       {
