@@ -98,6 +98,7 @@ $LocalLeft: (
 );
 [data-rem-container-tags~="fit"] {
     display: inline-block;
+    width: -moz-fit-content;
     width: fit-content;
     > .tree-node--children {
         > .animate-zoom-into-bullet:first-child {
@@ -494,12 +495,22 @@ $LocalLeft: (
 // Width Adjustment of Whole Table Content Cell
 @for $i from 1 through 40 {
     [data-rem-container-tags~="w#{$i * 30}"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {
-        width: #{$i * 30px};
+        width: #{$i * 30px} !important;
+    }
+    [data-document-tags~="w#{$i * 30}"] {
+        [data-rem-container-tags*="table"] {
+            > div {
+                overflow-x: auto;
+                > .rn-editor-container > .tree-node--children > .animate-zoom-into-bullet  {
+                    width: #{$i * 30px} !important;
+                }
+            }
+        }
     }
 }
 @for $i from 1 through 12 {
     [data-rem-container-tags~="w#{$i * 100}"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {
-        width: #{$i * 100px};
+        width: #{$i * 100px} !important;
     }
 }
 // Width Adjustment of Individual Table Content Cell
@@ -519,6 +530,19 @@ $LocalLeft: (
                     > div.tree-node--children {
                         > div.animate-zoom-into-bullet:nth-of-type(#{$i}) {
                             min-width: $px;
+                        }
+                    }
+                }
+            }
+        }
+        [data-document-tags~="c#{$i}w#{$width}"] {
+            [data-rem-container-tags*="table"] {
+                > div {
+                    > .rn-editor-container {
+                        > .tree-node--children {
+                            > .animate-zoom-into-bullet:nth-of-type(#{$i}) {
+                                min-width: $px;
+                            }
                         }
                     }
                 }
