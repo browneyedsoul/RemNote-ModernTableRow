@@ -407,13 +407,13 @@ $LocalLeft: (
                                 // width: 98%; This was a remedy for codeblock overflow but harmed whole table width control
                                 > div.tree-node--children {
                                     padding-left: 0;
-                                    > div {
-                                        > div {
-                                            > span {
-                                                padding-right: 1.2rem;
-                                            }
-                                        }
-                                    }
+                                    // > div {
+                                    //     > div {
+                                    //         > span {
+                                    //             padding-right: 1.2rem;
+                                    //         }
+                                    //     }
+                                    // }
                                 }
                                 // For Selecting Dense-width Cell Text Eclipsed with Rem-container
                                 .rich-text-editor {
