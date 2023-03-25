@@ -134,8 +134,8 @@ $LocalLeft: (
 ) {
     %InnerTable {
         #hierarchy-editor-inner {
-            @for $i from 3 through 40 {
-                > [data-rem-container-tags~="table#{$i * 30}"] {
+            @for $i from 1 through 9 {
+                > [data-rem-container-tags*="table#{$i}"] {
                     border-top: unset;
                     border-left: unset;
                     > div:last-of-type {
@@ -255,6 +255,24 @@ $LocalLeft: (
                     background-size: 100% 100%;
                     border-top-left-radius: 4px;
                     border-top-right-radius: 4px;
+                    .rem-button__container {
+                        z-index: 1;
+                    }
+                    &:focus-within {
+                        .rn-editor__rem__body__text {
+                            &::after {
+                                font-family: monospace;
+                                content:"...╷.╽╷..╷╽.╷..╽..╷.╽╷..╷╽.╷..╽";
+                                letter-spacing: 1.275rem;
+                                position: absolute;
+                                overflow-x: hidden;
+                                white-space: pre;
+                                left: -0.3rem;
+                                top: 0.9rem;
+                                opacity: .4;
+                            }
+                        }
+                    }
                 }
                 // Table Column Color Preset
                 [data-rem-container-tags~="th"],

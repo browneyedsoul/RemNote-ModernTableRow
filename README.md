@@ -17,6 +17,8 @@ Make your Rem Table with simple tags!
 
 - You have to select one of the widths listed below first to make a `Modern Table Low`
 - From 90px to 1200px, 30px interval
+- When you focus on the table title Rem, you can see the **ruler**. Each point is spaced 30px apart, and the large vertical line represents a 150px interval.
+- Of course, if it bothers you, you can simply lower the contrast or turn off the ruler on the Plugin Settings page by adjusting the opacity of the ruler line. (opacity value : 0 ~ 1)
 - Available Left Column Width List
 
   | Table Left Column Width | Available Tag Name (Case does not matter) |

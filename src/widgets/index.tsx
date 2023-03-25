@@ -6,23 +6,43 @@ let TableCSS: string;
 
 async function onActivate(plugin: ReactRNPlugin) {
   try {
-    await fetch("snippet.css")
-      .then((response) => response.text())
-      .then((text) => {
-        TableCSS = text;
-        console.dir("Table Installed!");
-      })
-      .catch((error) => console.error(error));
+    const response = await fetch("snippet.css");
+    const text = await response.text();
+    TableCSS = text;
+    await plugin.app.registerCSS("tableCSS", TableCSS);
+    console.log("Table Installed from local");
   } catch (error) {
-    await fetch("https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/src/snippet.css")
-      .then((response) => response.text())
-      .then((text) => {
-        TableCSS = text;
-        console.dir("Table Installed from cdn!");
-      })
-      .catch((error) => console.error(error));
+    const response = await fetch(
+      "https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/src/snippet.css",
+    );
+    const text = await response.text();
+    TableCSS = text;
+    await plugin.app.registerCSS("tableCSS", TableCSS);
+    console.log("Table Installed from cdn");
   }
-  await plugin.app.registerCSS("tableCSS", TableCSS);
+  await plugin.settings.registerStringSetting({
+    id: "opacity",
+    title: "Ruler Opacity",
+    description: "Opacity of the Ruler for measuring left column width",
+    defaultValue: "0.25",
+  });
+  plugin.track(async (reactivePlugin) => {
+    const opacityCtrl = await reactivePlugin.settings.getSetting<number>("opacity");
+    await reactivePlugin.app.registerCSS(
+      "opacity",
+      `
+#hierarchy-editor [data-rem-container-tags*="table1"] > div:first-child:focus-within .rn-editor__rem__body__text::after {opacity: ${opacityCtrl};}
+#hierarchy-editor [data-rem-container-tags*="table2"] > div:first-child:focus-within .rn-editor__rem__body__text::after {opacity: ${opacityCtrl};}
+#hierarchy-editor [data-rem-container-tags*="table3"] > div:first-child:focus-within .rn-editor__rem__body__text::after {opacity: ${opacityCtrl};}
+#hierarchy-editor [data-rem-container-tags*="table4"] > div:first-child:focus-within .rn-editor__rem__body__text::after {opacity: ${opacityCtrl};}
+#hierarchy-editor [data-rem-container-tags*="table5"] > div:first-child:focus-within .rn-editor__rem__body__text::after {opacity: ${opacityCtrl};}
+#hierarchy-editor [data-rem-container-tags*="table6"] > div:first-child:focus-within .rn-editor__rem__body__text::after {opacity: ${opacityCtrl};}
+#hierarchy-editor [data-rem-container-tags*="table7"] > div:first-child:focus-within .rn-editor__rem__body__text::after {opacity: ${opacityCtrl};}
+#hierarchy-editor [data-rem-container-tags*="table8"] > div:first-child:focus-within .rn-editor__rem__body__text::after {opacity: ${opacityCtrl};}
+#hierarchy-editor [data-rem-container-tags*="table9"] > div:first-child:focus-within .rn-editor__rem__body__text::after {opacity: ${opacityCtrl};}
+      `,
+    );
+  });
 
   await plugin.app.registerPowerup("Table", TABLE, "Attribute Column Width", {
     slots: [
