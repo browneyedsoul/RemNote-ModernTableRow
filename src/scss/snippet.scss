@@ -543,7 +543,7 @@ $LocalLeft: (
 }
 @for $i from 1 through 9 {
     @each $width, $px in $LocalLeft {
-        [data-rem-container-tags~="c#{$i}w#{$width}"] {
+        #hierarchy-editor [data-rem-container-tags~="c#{$i}w#{$width}"] {
             > div.tree-node--children {
                 > div.animate-zoom-into-bullet {
                     > div.tree-node--children {
