@@ -259,7 +259,7 @@ $LocalLeft: (
                         z-index: 1;
                     }
                     &:focus-within {
-                        .rn-editor__rem__body__text {
+                        .rn-editor__rem__body__text:not(.rn-editor__rem__body__text--h1):not(.rn-editor__rem__body__text--h2):not(.rn-editor__rem__body__text--h3) {
                             &::after {
                                 font-family: monospace;
                                 content:"...╷.╽╷..╷╽.╷..╽..╷.╽╷..╷╽.╷..╽";
@@ -269,7 +269,6 @@ $LocalLeft: (
                                 white-space: pre;
                                 left: -0.3rem;
                                 top: 0.9rem;
-                                opacity: .4;
                             }
                         }
                     }
