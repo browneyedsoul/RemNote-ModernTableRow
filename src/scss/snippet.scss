@@ -22,6 +22,15 @@
     --table-bg-vt: #F8EFFF;
     --table-bg-vt-dark: #4A2B45;
 }
+// Fix cell dislocation
+[data-rem-container-tags*="table"] {
+    .rn-editor__rem__body__text {
+        span.whitespace-pre-wrap {
+            word-break: initial;
+        }
+    }
+}
+
 %bgcolorFix {
     display: flex;
     flex-direction: row;
