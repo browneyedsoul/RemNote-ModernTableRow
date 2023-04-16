@@ -68,18 +68,23 @@ Make your Rem Table with simple tags!
   <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/2.gif">
 
 ## Local Column Width Control
-
-- 'c1' means column 1
-- 'c2' means column 2
-- ...
+- Example Usage
+  - `c1` means column 1 / `w400` means 400px --> `c1w400`
+  - `c2` means column 2 / `w600` means 600px --> `c1w600` 
+  - ...
 - List
 
-  | Available Column Width | Tags for tuning local column width with 200px interval |
+  | Available Column Width | These tags enable you to fine-tune the width of local columns with 100px intervals. |
   | ------------- | ------------- |
+  | 100px | `c1w100` `c2w100`, `c3w100`, `c4w100`, `c5w100`, ... , `c9w100`  |
   | 200px | `c1w200` `c2w200`, `c3w200`, `c4w200`, `c5w200`, ... , `c9w200`  |
+  | 300px | `c1w300` `c2w300`, `c3w300`, `c4w300`, `c5w300`, ... , `c9w300`  |
   | 400px | `c1w400`, `c2w400`, ... `c9w400`  |
+  | 500px | `c1w500`, `c2w500`, ... `c9w500`  |
   | 600px | `c1w600`, `c2w600`, ... `c9w600` |
+  | 700px | `c1w700`, `c2w700`, ... `c9w700`  |
   | 800px | `c1w800`, `c2w800`, ... `c9w800` |
+  | 900px | `c1w900`, `c2w900`, ... `c9w900`  |
   | 1000px | `c1w1000` `c2w1000`,, ... `c9w1000` |
 
 ## Table width shrinking to fit inner contents
