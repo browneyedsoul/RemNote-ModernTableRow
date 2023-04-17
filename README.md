@@ -2,38 +2,34 @@
 
 Make your Rem Table with simple tags!
 
+## Whoa!
+> There is the "Database Table" recently launched in RemNote! Is it still useful?
+
+> **Absolutely**, These are the reasons why you should consider before using the `Modern Table Row`
+- I just want light weight, basic level table for logging simple, static information without sorting, filtering kind of things.
+- I really care about the ability to export as a markdown text for the compatibility with other programs or documents.
+
 ## Getting Started
 
 - Create a Rem hierarchy like in this image:
 
   ![image](https://user-images.githubusercontent.com/58147075/205598631-67e58b0a-19f5-4c74-8ed9-3b5a563362a4.png)
 
-- Then type "##Table90" in the "Table" Rem and press enter to create your table:
-
-  ![image](https://user-images.githubusercontent.com/58147075/205599037-a453ed5a-641f-42e9-af39-ea18d54edf4b.png)
-
-## Available Tags
-
-
-- You have to select one of the widths listed below first to make a `Modern Table Low`
-- From 90px to 1200px, 30px interval
-- When you focus on the table title Rem, you can see the **ruler**. Each point is spaced 30px apart, and the large vertical line represents a 150px interval.
-- Of course, if it bothers you, you can simply lower the contrast or turn off the ruler on the Plugin Settings page by adjusting the opacity of the ruler line. (opacity value : 0 ~ 1)
-- Available Left Column Width List
-
-  | Table Left Column Width | Available Tag Name (Case does not matter) |
-  | ------------- | ------------- |
-  | 90px | `Table90` |
-  | 120px | `Table120` |
-  | 150px | `Table150` |
-  | 180px | `Table180` |
-  | 210px | `Table210` |
-  | ...   |   ...    |
-  | 1170px | `Table1170` |
-  | 1200px | `Table1200` |
+- Focus the cursor where the Table Title exist.
+- Then open the context menu via simple onmibar or slash command, 
+- And then type `tb`. You'll see the options for modern table row 
+- Without any cumbersome procedure, you can just make the table with keyboard shortcut. You can find the shortcut in the shortcut page.
  
 
-# Tune your table with title bar tagging
+# Tune your table with tagging
+
+> all the table controls are begin with title bar tagging
+
+## Left Column Width Control
+
+- After making the table, you can see the width of left column would be 150px.
+- Of course you can resize the property column width.
+- Simply tune the width with omnibar/slash command or keyboard shortcut. Shortcut would be easy way when you are using computer.
 
 ## Global Column Width Control
 
