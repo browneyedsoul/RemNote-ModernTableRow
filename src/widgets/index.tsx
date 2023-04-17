@@ -1,4 +1,5 @@
-import {declareIndexPlugin, ReactRNPlugin} from "@remnote/plugin-sdk";
+import { declareIndexPlugin, ReactRNPlugin } from "@remnote/plugin-sdk";
+import React, { useState } from "react";
 
 export const [TABLE, WIDTH] = ["table", "width"];
 
@@ -24,7 +25,7 @@ async function onActivate(plugin: ReactRNPlugin) {
     id: "opacity",
     title: "Ruler Opacity",
     description: "Opacity of the Ruler for measuring left column width",
-    defaultValue: "0.25",
+    defaultValue: "0.15",
   });
   plugin.track(async (reactivePlugin) => {
     const opacityCtrl = await reactivePlugin.settings.getSetting<number>("opacity");
@@ -282,7 +283,7 @@ async function onActivate(plugin: ReactRNPlugin) {
       },
     ],
   });
-  await plugin.app.registerPowerup("Width", WIDTH, "Global Column Width", {
+  await plugin.app.registerPowerup("Width", WIDTH, "Column Width", {
     slots: [
       {
         code: "w100",
@@ -831,6 +832,187 @@ async function onActivate(plugin: ReactRNPlugin) {
         hidden: false,
       },
     ],
+  });
+
+  await plugin.app.registerCommand({
+    id: "table",
+    name: "Table",
+    quickCode: "tb",
+    keyboardShortcut: "command+shift+t",
+    description: "All the presets for table left cell customization",
+    action: async () => {
+      const rem = await plugin.focus.getFocusedRem();
+      await rem?.addTag(TB150)
+    },
+  });
+
+  await plugin.app.registerCommand({
+    id: "table-list",
+    name: "Table Left Width List",
+    quickCode: "tbl",
+    description: "All the presets for table left cell customization",
+    action: async () => {
+      const rem = await plugin.powerup.getPowerupByCode(TABLE);
+      await rem?.openRemInContext();
+    },
+  });
+  await plugin.app.registerCommand({
+    id: "width-list",
+    name: "Table Global Width List",
+    quickCode: "tbg",
+    description: "A Simple Table",
+    action: async () => {
+      const rem = await plugin.powerup.getPowerupByCode(WIDTH);
+      await rem?.openRemInContext();
+    },
+  });
+
+  const TB90: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table90");
+  const TB120: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table120");
+  const TB150: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table150");
+  const TB180: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table180");
+  const TB210: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table210");
+  const TB240: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table240");
+  const TB270: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table270");
+  const TB300: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table300");
+  const TB330: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table330");
+  const TB360: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table360");
+  const TB390: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table390");
+  const TB420: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table420");
+  const TB450: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table450");
+  const TB480: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table480");
+  const TB510: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table510");
+  const TB540: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table540");
+  const TB570: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table570");
+  const TB600: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table600");
+  const TB630: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table630");
+  const TB660: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table660");
+  const TB690: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table690");
+  const TB720: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table720");
+  const TB750: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table750");
+  const TB780: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table780");
+  const TB810: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table810");
+  const TB840: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table840");
+  const TB870: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table870");
+  const TB900: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table900");
+  const TB930: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table930");
+  const TB960: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table960");
+  const TB990: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table990");
+  const TB1020: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table1020");
+  const TB1050: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table1050");
+  const TB1080: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table1080");
+  const TB1110: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table1110");
+  const TB1140: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table1140");
+  const TB1170: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table1170");
+  const TB1200: any = await plugin.powerup.getPowerupSlotByCode(TABLE, "table1200");
+
+  const rmvTag = async () => {
+    const rem = await plugin.focus.getFocusedRem();
+    const remForTagging = (await rem?.getTagRems()) ?? [];
+    const tagID: string = remForTagging[0]?._id;
+    console.log(tagID);
+    await rem?.removeTag(tagID, true);
+  }
+
+  await plugin.app.registerCommand({
+    id: "table-plus",
+    name: "Table - increase property column width",
+    quickCode: "tbi",
+    keyboardShortcut: "command+shift+=",
+    description: "Table starting from 90px to 1200px",
+    action: async () => {
+      const rem = await plugin.focus.getFocusedRem();
+      const tbTag = (await rem?.getTagRems()) ?? [];
+      const judgeTag = tbTag[0]?.text.toString();
+      // console.log(judgeTag);
+      judgeTag === "Table90" ? (await rmvTag(), await rem?.addTag(TB120)) : null;
+      judgeTag === "Table120" ? (await rmvTag(), await rem?.addTag(TB150)) : null;
+      judgeTag === "Table150" ? (await rmvTag(), await rem?.addTag(TB180)) : null;
+      judgeTag === "Table180" ? (await rmvTag(), await rem?.addTag(TB210)) : null;
+      judgeTag === "Table210" ? (await rmvTag(), await rem?.addTag(TB240)) : null;
+      judgeTag === "Table240" ? (await rmvTag(), await rem?.addTag(TB270)) : null;
+      judgeTag === "Table270" ? (await rmvTag(), await rem?.addTag(TB300)) : null;
+      judgeTag === "Table300" ? (await rmvTag(), await rem?.addTag(TB330)) : null;
+      judgeTag === "Table330" ? (await rmvTag(), await rem?.addTag(TB360)) : null;
+      judgeTag === "Table360" ? (await rmvTag(), await rem?.addTag(TB390)) : null;
+      judgeTag === "Table390" ? (await rmvTag(), await rem?.addTag(TB420)) : null;
+      judgeTag === "Table420" ? (await rmvTag(), await rem?.addTag(TB450)) : null;
+      judgeTag === "Table450" ? (await rmvTag(), await rem?.addTag(TB480)) : null;
+      judgeTag === "Table480" ? (await rmvTag(), await rem?.addTag(TB510)) : null;
+      judgeTag === "Table510" ? (await rmvTag(), await rem?.addTag(TB540)) : null;
+      judgeTag === "Table540" ? (await rmvTag(), await rem?.addTag(TB570)) : null;
+      judgeTag === "Table570" ? (await rmvTag(), await rem?.addTag(TB600)) : null;
+      judgeTag === "Table600" ? (await rmvTag(), await rem?.addTag(TB630)) : null;
+      judgeTag === "Table630" ? (await rmvTag(), await rem?.addTag(TB660)) : null;
+      judgeTag === "Table660" ? (await rmvTag(), await rem?.addTag(TB690)) : null;
+      judgeTag === "Table690" ? (await rmvTag(), await rem?.addTag(TB720)) : null;
+      judgeTag === "Table720" ? (await rmvTag(), await rem?.addTag(TB750)) : null;
+      judgeTag === "Table750" ? (await rmvTag(), await rem?.addTag(TB780)) : null;
+      judgeTag === "Table780" ? (await rmvTag(), await rem?.addTag(TB810)) : null;
+      judgeTag === "Table810" ? (await rmvTag(), await rem?.addTag(TB840)) : null;
+      judgeTag === "Table840" ? (await rmvTag(), await rem?.addTag(TB870)) : null;
+      judgeTag === "Table870" ? (await rmvTag(), await rem?.addTag(TB900)) : null;
+      judgeTag === "Table900" ? (await rmvTag(), await rem?.addTag(TB930)) : null;
+      judgeTag === "Table930" ? (await rmvTag(), await rem?.addTag(TB960)) : null;
+      judgeTag === "Table960" ? (await rmvTag(), await rem?.addTag(TB990)) : null;
+      judgeTag === "Table990" ? (await rmvTag(), await rem?.addTag(TB1020)) : null;
+      judgeTag === "Table1020" ? (await rmvTag(), await rem?.addTag(TB1050)) : null;
+      judgeTag === "Table1050" ? (await rmvTag(), await rem?.addTag(TB1080)) : null;
+      judgeTag === "Table1080" ? (await rmvTag(), await rem?.addTag(TB1110)) : null;
+      judgeTag === "Table1110" ? (await rmvTag(), await rem?.addTag(TB1140)) : null;
+      judgeTag === "Table1140" ? (await rmvTag(), await rem?.addTag(TB1170)) : null;
+      judgeTag === "Table1170" ? (await rmvTag(), await rem?.addTag(TB1200)) : null;
+    },
+  });
+  await plugin.app.registerCommand({
+    id: "table-minus",
+    name: "Table - decrease property column width",
+    quickCode: "tbd",
+    keyboardShortcut: "command+shift+-",
+    description: "Table starting from 1200px to 90px",
+    action: async () => {
+      const rem = await plugin.focus.getFocusedRem();
+      const tbTag = (await rem?.getTagRems()) ?? [];
+      const judgeTag = tbTag[0]?.text.toString();
+      // console.log(judgeTag);
+      judgeTag === "Table120" ? (await rmvTag(), await rem?.addTag(TB90)) : null;
+      judgeTag === "Table150" ? (await rmvTag(), await rem?.addTag(TB120)) : null;
+      judgeTag === "Table180" ? (await rmvTag(), await rem?.addTag(TB150)) : null;
+      judgeTag === "Table210" ? (await rmvTag(), await rem?.addTag(TB180)) : null;
+      judgeTag === "Table240" ? (await rmvTag(), await rem?.addTag(TB210)) : null;
+      judgeTag === "Table270" ? (await rmvTag(), await rem?.addTag(TB240)) : null;
+      judgeTag === "Table300" ? (await rmvTag(), await rem?.addTag(TB270)) : null;
+      judgeTag === "Table330" ? (await rmvTag(), await rem?.addTag(TB300)) : null;
+      judgeTag === "Table360" ? (await rmvTag(), await rem?.addTag(TB330)) : null;
+      judgeTag === "Table390" ? (await rmvTag(), await rem?.addTag(TB360)) : null;
+      judgeTag === "Table420" ? (await rmvTag(), await rem?.addTag(TB390)) : null;
+      judgeTag === "Table450" ? (await rmvTag(), await rem?.addTag(TB420)) : null;
+      judgeTag === "Table480" ? (await rmvTag(), await rem?.addTag(TB450)) : null;
+      judgeTag === "Table510" ? (await rmvTag(), await rem?.addTag(TB480)) : null;
+      judgeTag === "Table540" ? (await rmvTag(), await rem?.addTag(TB510)) : null;
+      judgeTag === "Table570" ? (await rmvTag(), await rem?.addTag(TB540)) : null;
+      judgeTag === "Table600" ? (await rmvTag(), await rem?.addTag(TB570)) : null;
+      judgeTag === "Table630" ? (await rmvTag(), await rem?.addTag(TB600)) : null;
+      judgeTag === "Table660" ? (await rmvTag(), await rem?.addTag(TB630)) : null;
+      judgeTag === "Table690" ? (await rmvTag(), await rem?.addTag(TB660)) : null;
+      judgeTag === "Table720" ? (await rmvTag(), await rem?.addTag(TB690)) : null;
+      judgeTag === "Table750" ? (await rmvTag(), await rem?.addTag(TB720)) : null;
+      judgeTag === "Table780" ? (await rmvTag(), await rem?.addTag(TB750)) : null;
+      judgeTag === "Table810" ? (await rmvTag(), await rem?.addTag(TB780)) : null;
+      judgeTag === "Table840" ? (await rmvTag(), await rem?.addTag(TB810)) : null;
+      judgeTag === "Table870" ? (await rmvTag(), await rem?.addTag(TB840)) : null;
+      judgeTag === "Table900" ? (await rmvTag(), await rem?.addTag(TB870)) : null;
+      judgeTag === "Table930" ? (await rmvTag(), await rem?.addTag(TB900)) : null;
+      judgeTag === "Table960" ? (await rmvTag(), await rem?.addTag(TB930)) : null;
+      judgeTag === "Table990" ? (await rmvTag(), await rem?.addTag(TB960)) : null;
+      judgeTag === "Table1020" ? (await rmvTag(), await rem?.addTag(TB990)) : null;
+      judgeTag === "Table1050" ? (await rmvTag(), await rem?.addTag(TB1020)) : null;
+      judgeTag === "Table1080" ? (await rmvTag(), await rem?.addTag(TB1050)) : null;
+      judgeTag === "Table1110" ? (await rmvTag(), await rem?.addTag(TB1080)) : null;
+      judgeTag === "Table1140" ? (await rmvTag(), await rem?.addTag(TB1110)) : null;
+      judgeTag === "Table1170" ? (await rmvTag(), await rem?.addTag(TB1140)) : null;
+      judgeTag === "Table1200" ? (await rmvTag(), await rem?.addTag(TB1170)) : null;
+    },
   });
 }
 
