@@ -7,15 +7,15 @@
   "repoUrl": "https://github.com/browneyedsoul/RemNote-ModernTableRow",
   "manifestVersion": 1,
   "version": {
-    "major": 1,
-    "minor": 7,
-    "patch": 4
+    "major": 2,
+    "minor": 0,
+    "patch": 0
   },
   "requestNative": true,
   "requiredScopes": [
     {
       "type": "All",
-      "level": "ReadCreateModify"
+      "level": "ReadCreateModifyDelete"
     }
   ]
 }
