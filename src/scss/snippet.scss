@@ -434,7 +434,7 @@ $LocalLeft: (
                                 background-color: $table-cell-bg;
                                 border-left: 0.07rem solid $table-border;
                                 flex: 1 1 0;
-                                padding-right: 0;
+                                padding-right: 1px;
                                 min-width: 10rem;
                                 // width: 98%; This was a remedy for codeblock overflow but harmed whole table width control
                                 > div.tree-node--children {
