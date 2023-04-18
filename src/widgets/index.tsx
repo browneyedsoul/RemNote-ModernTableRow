@@ -1,5 +1,5 @@
-import { declareIndexPlugin, ReactRNPlugin } from "@remnote/plugin-sdk";
-import React, { useState } from "react";
+import {declareIndexPlugin, ReactRNPlugin} from "@remnote/plugin-sdk";
+import React, {useState} from "react";
 
 export const [TABLE, WIDTH] = ["table", "width"];
 
@@ -842,7 +842,7 @@ async function onActivate(plugin: ReactRNPlugin) {
     description: "All the presets for table left cell customization",
     action: async () => {
       const rem = await plugin.focus.getFocusedRem();
-      await rem?.addTag(TB150)
+      await rem?.addTag(TB150);
     },
   });
 
@@ -864,6 +864,17 @@ async function onActivate(plugin: ReactRNPlugin) {
     action: async () => {
       const rem = await plugin.powerup.getPowerupByCode(WIDTH);
       await rem?.openRemInContext();
+    },
+  });
+
+  await plugin.app.registerCommand({
+    id: "test",
+    name: "Test",
+    description: "A Simple Test",
+    keyboardShortcut: "opt+shift+t",
+    action: async () => {
+      const rem = await plugin.powerup.getPowerupByCode(WIDTH);
+      console.log(TABLE);
     },
   });
 
@@ -909,10 +920,11 @@ async function onActivate(plugin: ReactRNPlugin) {
   const rmvTag = async () => {
     const rem = await plugin.focus.getFocusedRem();
     const remForTagging = (await rem?.getTagRems()) ?? [];
-    const tagID: string = remForTagging[0]?._id;
+    const filteredArray = remForTagging.filter((item) => item.parent);
+    const tagID: string = filteredArray[0]?._id;
     console.log(tagID);
     await rem?.removeTag(tagID, true);
-  }
+  };
 
   await plugin.app.registerCommand({
     id: "table-plus",
@@ -923,45 +935,48 @@ async function onActivate(plugin: ReactRNPlugin) {
     action: async () => {
       const rem = await plugin.focus.getFocusedRem();
       const tbTag = (await rem?.getTagRems()) ?? [];
-      const judgeTag = tbTag[0]?.text.toString();
+      const filteredArray = tbTag.filter((item) => item.parent);
+      // const tbTagSelected = await tbTag.filter(TB360);
+      // console.log(tbTagSelected);
+      const judgeTag = filteredArray[0]?.text.toString();
       // console.log(judgeTag);
-      judgeTag === "Table90" ? (await rmvTag(), await rem?.addTag(TB120)) : null;
-      judgeTag === "Table120" ? (await rmvTag(), await rem?.addTag(TB150)) : null;
-      judgeTag === "Table150" ? (await rmvTag(), await rem?.addTag(TB180)) : null;
-      judgeTag === "Table180" ? (await rmvTag(), await rem?.addTag(TB210)) : null;
-      judgeTag === "Table210" ? (await rmvTag(), await rem?.addTag(TB240)) : null;
-      judgeTag === "Table240" ? (await rmvTag(), await rem?.addTag(TB270)) : null;
-      judgeTag === "Table270" ? (await rmvTag(), await rem?.addTag(TB300)) : null;
-      judgeTag === "Table300" ? (await rmvTag(), await rem?.addTag(TB330)) : null;
-      judgeTag === "Table330" ? (await rmvTag(), await rem?.addTag(TB360)) : null;
-      judgeTag === "Table360" ? (await rmvTag(), await rem?.addTag(TB390)) : null;
-      judgeTag === "Table390" ? (await rmvTag(), await rem?.addTag(TB420)) : null;
-      judgeTag === "Table420" ? (await rmvTag(), await rem?.addTag(TB450)) : null;
-      judgeTag === "Table450" ? (await rmvTag(), await rem?.addTag(TB480)) : null;
-      judgeTag === "Table480" ? (await rmvTag(), await rem?.addTag(TB510)) : null;
-      judgeTag === "Table510" ? (await rmvTag(), await rem?.addTag(TB540)) : null;
-      judgeTag === "Table540" ? (await rmvTag(), await rem?.addTag(TB570)) : null;
-      judgeTag === "Table570" ? (await rmvTag(), await rem?.addTag(TB600)) : null;
-      judgeTag === "Table600" ? (await rmvTag(), await rem?.addTag(TB630)) : null;
-      judgeTag === "Table630" ? (await rmvTag(), await rem?.addTag(TB660)) : null;
-      judgeTag === "Table660" ? (await rmvTag(), await rem?.addTag(TB690)) : null;
-      judgeTag === "Table690" ? (await rmvTag(), await rem?.addTag(TB720)) : null;
-      judgeTag === "Table720" ? (await rmvTag(), await rem?.addTag(TB750)) : null;
-      judgeTag === "Table750" ? (await rmvTag(), await rem?.addTag(TB780)) : null;
-      judgeTag === "Table780" ? (await rmvTag(), await rem?.addTag(TB810)) : null;
-      judgeTag === "Table810" ? (await rmvTag(), await rem?.addTag(TB840)) : null;
-      judgeTag === "Table840" ? (await rmvTag(), await rem?.addTag(TB870)) : null;
-      judgeTag === "Table870" ? (await rmvTag(), await rem?.addTag(TB900)) : null;
-      judgeTag === "Table900" ? (await rmvTag(), await rem?.addTag(TB930)) : null;
-      judgeTag === "Table930" ? (await rmvTag(), await rem?.addTag(TB960)) : null;
-      judgeTag === "Table960" ? (await rmvTag(), await rem?.addTag(TB990)) : null;
-      judgeTag === "Table990" ? (await rmvTag(), await rem?.addTag(TB1020)) : null;
-      judgeTag === "Table1020" ? (await rmvTag(), await rem?.addTag(TB1050)) : null;
-      judgeTag === "Table1050" ? (await rmvTag(), await rem?.addTag(TB1080)) : null;
-      judgeTag === "Table1080" ? (await rmvTag(), await rem?.addTag(TB1110)) : null;
-      judgeTag === "Table1110" ? (await rmvTag(), await rem?.addTag(TB1140)) : null;
-      judgeTag === "Table1140" ? (await rmvTag(), await rem?.addTag(TB1170)) : null;
-      judgeTag === "Table1170" ? (await rmvTag(), await rem?.addTag(TB1200)) : null;
+      judgeTag.includes("Table90") ? (await rmvTag(), await rem?.addTag(TB120)) : null;
+      judgeTag.includes("Table120") ? (await rmvTag(), await rem?.addTag(TB150)) : null;
+      judgeTag.includes("Table150") ? (await rmvTag(), await rem?.addTag(TB180)) : null;
+      judgeTag.includes("Table180") ? (await rmvTag(), await rem?.addTag(TB210)) : null;
+      judgeTag.includes("Table210") ? (await rmvTag(), await rem?.addTag(TB240)) : null;
+      judgeTag.includes("Table240") ? (await rmvTag(), await rem?.addTag(TB270)) : null;
+      judgeTag.includes("Table270") ? (await rmvTag(), await rem?.addTag(TB300)) : null;
+      judgeTag.includes("Table300") ? (await rmvTag(), await rem?.addTag(TB330)) : null;
+      judgeTag.includes("Table330") ? (await rmvTag(), await rem?.addTag(TB360)) : null;
+      judgeTag.includes("Table360") ? (await rmvTag(), await rem?.addTag(TB390)) : null;
+      judgeTag.includes("Table390") ? (await rmvTag(), await rem?.addTag(TB420)) : null;
+      judgeTag.includes("Table420") ? (await rmvTag(), await rem?.addTag(TB450)) : null;
+      judgeTag.includes("Table450") ? (await rmvTag(), await rem?.addTag(TB480)) : null;
+      judgeTag.includes("Table480") ? (await rmvTag(), await rem?.addTag(TB510)) : null;
+      judgeTag.includes("Table510") ? (await rmvTag(), await rem?.addTag(TB540)) : null;
+      judgeTag.includes("Table540") ? (await rmvTag(), await rem?.addTag(TB570)) : null;
+      judgeTag.includes("Table570") ? (await rmvTag(), await rem?.addTag(TB600)) : null;
+      judgeTag.includes("Table600") ? (await rmvTag(), await rem?.addTag(TB630)) : null;
+      judgeTag.includes("Table630") ? (await rmvTag(), await rem?.addTag(TB660)) : null;
+      judgeTag.includes("Table660") ? (await rmvTag(), await rem?.addTag(TB690)) : null;
+      judgeTag.includes("Table690") ? (await rmvTag(), await rem?.addTag(TB720)) : null;
+      judgeTag.includes("Table720") ? (await rmvTag(), await rem?.addTag(TB750)) : null;
+      judgeTag.includes("Table750") ? (await rmvTag(), await rem?.addTag(TB780)) : null;
+      judgeTag.includes("Table780") ? (await rmvTag(), await rem?.addTag(TB810)) : null;
+      judgeTag.includes("Table810") ? (await rmvTag(), await rem?.addTag(TB840)) : null;
+      judgeTag.includes("Table840") ? (await rmvTag(), await rem?.addTag(TB870)) : null;
+      judgeTag.includes("Table870") ? (await rmvTag(), await rem?.addTag(TB900)) : null;
+      judgeTag.includes("Table900") ? (await rmvTag(), await rem?.addTag(TB930)) : null;
+      judgeTag.includes("Table930") ? (await rmvTag(), await rem?.addTag(TB960)) : null;
+      judgeTag.includes("Table960") ? (await rmvTag(), await rem?.addTag(TB990)) : null;
+      judgeTag.includes("Table990") ? (await rmvTag(), await rem?.addTag(TB1020)) : null;
+      judgeTag.includes("Table1020") ? (await rmvTag(), await rem?.addTag(TB1050)) : null;
+      judgeTag.includes("Table1050") ? (await rmvTag(), await rem?.addTag(TB1080)) : null;
+      judgeTag.includes("Table1080") ? (await rmvTag(), await rem?.addTag(TB1110)) : null;
+      judgeTag.includes("Table1110") ? (await rmvTag(), await rem?.addTag(TB1140)) : null;
+      judgeTag.includes("Table1140") ? (await rmvTag(), await rem?.addTag(TB1170)) : null;
+      judgeTag.includes("Table1170") ? (await rmvTag(), await rem?.addTag(TB1200)) : null;
     },
   });
   await plugin.app.registerCommand({
@@ -973,45 +988,46 @@ async function onActivate(plugin: ReactRNPlugin) {
     action: async () => {
       const rem = await plugin.focus.getFocusedRem();
       const tbTag = (await rem?.getTagRems()) ?? [];
-      const judgeTag = tbTag[0]?.text.toString();
+      const filteredArray = tbTag.filter((item) => item.parent);
+      const judgeTag = filteredArray[0]?.text.toString();
       // console.log(judgeTag);
-      judgeTag === "Table120" ? (await rmvTag(), await rem?.addTag(TB90)) : null;
-      judgeTag === "Table150" ? (await rmvTag(), await rem?.addTag(TB120)) : null;
-      judgeTag === "Table180" ? (await rmvTag(), await rem?.addTag(TB150)) : null;
-      judgeTag === "Table210" ? (await rmvTag(), await rem?.addTag(TB180)) : null;
-      judgeTag === "Table240" ? (await rmvTag(), await rem?.addTag(TB210)) : null;
-      judgeTag === "Table270" ? (await rmvTag(), await rem?.addTag(TB240)) : null;
-      judgeTag === "Table300" ? (await rmvTag(), await rem?.addTag(TB270)) : null;
-      judgeTag === "Table330" ? (await rmvTag(), await rem?.addTag(TB300)) : null;
-      judgeTag === "Table360" ? (await rmvTag(), await rem?.addTag(TB330)) : null;
-      judgeTag === "Table390" ? (await rmvTag(), await rem?.addTag(TB360)) : null;
-      judgeTag === "Table420" ? (await rmvTag(), await rem?.addTag(TB390)) : null;
-      judgeTag === "Table450" ? (await rmvTag(), await rem?.addTag(TB420)) : null;
-      judgeTag === "Table480" ? (await rmvTag(), await rem?.addTag(TB450)) : null;
-      judgeTag === "Table510" ? (await rmvTag(), await rem?.addTag(TB480)) : null;
-      judgeTag === "Table540" ? (await rmvTag(), await rem?.addTag(TB510)) : null;
-      judgeTag === "Table570" ? (await rmvTag(), await rem?.addTag(TB540)) : null;
-      judgeTag === "Table600" ? (await rmvTag(), await rem?.addTag(TB570)) : null;
-      judgeTag === "Table630" ? (await rmvTag(), await rem?.addTag(TB600)) : null;
-      judgeTag === "Table660" ? (await rmvTag(), await rem?.addTag(TB630)) : null;
-      judgeTag === "Table690" ? (await rmvTag(), await rem?.addTag(TB660)) : null;
-      judgeTag === "Table720" ? (await rmvTag(), await rem?.addTag(TB690)) : null;
-      judgeTag === "Table750" ? (await rmvTag(), await rem?.addTag(TB720)) : null;
-      judgeTag === "Table780" ? (await rmvTag(), await rem?.addTag(TB750)) : null;
-      judgeTag === "Table810" ? (await rmvTag(), await rem?.addTag(TB780)) : null;
-      judgeTag === "Table840" ? (await rmvTag(), await rem?.addTag(TB810)) : null;
-      judgeTag === "Table870" ? (await rmvTag(), await rem?.addTag(TB840)) : null;
-      judgeTag === "Table900" ? (await rmvTag(), await rem?.addTag(TB870)) : null;
-      judgeTag === "Table930" ? (await rmvTag(), await rem?.addTag(TB900)) : null;
-      judgeTag === "Table960" ? (await rmvTag(), await rem?.addTag(TB930)) : null;
-      judgeTag === "Table990" ? (await rmvTag(), await rem?.addTag(TB960)) : null;
-      judgeTag === "Table1020" ? (await rmvTag(), await rem?.addTag(TB990)) : null;
-      judgeTag === "Table1050" ? (await rmvTag(), await rem?.addTag(TB1020)) : null;
-      judgeTag === "Table1080" ? (await rmvTag(), await rem?.addTag(TB1050)) : null;
-      judgeTag === "Table1110" ? (await rmvTag(), await rem?.addTag(TB1080)) : null;
-      judgeTag === "Table1140" ? (await rmvTag(), await rem?.addTag(TB1110)) : null;
-      judgeTag === "Table1170" ? (await rmvTag(), await rem?.addTag(TB1140)) : null;
-      judgeTag === "Table1200" ? (await rmvTag(), await rem?.addTag(TB1170)) : null;
+      judgeTag.includes("Table120") ? (await rmvTag(), await rem?.addTag(TB90)) : null;
+      judgeTag.includes("Table150") ? (await rmvTag(), await rem?.addTag(TB120)) : null;
+      judgeTag.includes("Table180") ? (await rmvTag(), await rem?.addTag(TB150)) : null;
+      judgeTag.includes("Table210") ? (await rmvTag(), await rem?.addTag(TB180)) : null;
+      judgeTag.includes("Table240") ? (await rmvTag(), await rem?.addTag(TB210)) : null;
+      judgeTag.includes("Table270") ? (await rmvTag(), await rem?.addTag(TB240)) : null;
+      judgeTag.includes("Table300") ? (await rmvTag(), await rem?.addTag(TB270)) : null;
+      judgeTag.includes("Table330") ? (await rmvTag(), await rem?.addTag(TB300)) : null;
+      judgeTag.includes("Table360") ? (await rmvTag(), await rem?.addTag(TB330)) : null;
+      judgeTag.includes("Table390") ? (await rmvTag(), await rem?.addTag(TB360)) : null;
+      judgeTag.includes("Table420") ? (await rmvTag(), await rem?.addTag(TB390)) : null;
+      judgeTag.includes("Table450") ? (await rmvTag(), await rem?.addTag(TB420)) : null;
+      judgeTag.includes("Table480") ? (await rmvTag(), await rem?.addTag(TB450)) : null;
+      judgeTag.includes("Table510") ? (await rmvTag(), await rem?.addTag(TB480)) : null;
+      judgeTag.includes("Table540") ? (await rmvTag(), await rem?.addTag(TB510)) : null;
+      judgeTag.includes("Table570") ? (await rmvTag(), await rem?.addTag(TB540)) : null;
+      judgeTag.includes("Table600") ? (await rmvTag(), await rem?.addTag(TB570)) : null;
+      judgeTag.includes("Table630") ? (await rmvTag(), await rem?.addTag(TB600)) : null;
+      judgeTag.includes("Table660") ? (await rmvTag(), await rem?.addTag(TB630)) : null;
+      judgeTag.includes("Table690") ? (await rmvTag(), await rem?.addTag(TB660)) : null;
+      judgeTag.includes("Table720") ? (await rmvTag(), await rem?.addTag(TB690)) : null;
+      judgeTag.includes("Table750") ? (await rmvTag(), await rem?.addTag(TB720)) : null;
+      judgeTag.includes("Table780") ? (await rmvTag(), await rem?.addTag(TB750)) : null;
+      judgeTag.includes("Table810") ? (await rmvTag(), await rem?.addTag(TB780)) : null;
+      judgeTag.includes("Table840") ? (await rmvTag(), await rem?.addTag(TB810)) : null;
+      judgeTag.includes("Table870") ? (await rmvTag(), await rem?.addTag(TB840)) : null;
+      judgeTag.includes("Table900") ? (await rmvTag(), await rem?.addTag(TB870)) : null;
+      judgeTag.includes("Table930") ? (await rmvTag(), await rem?.addTag(TB900)) : null;
+      judgeTag.includes("Table960") ? (await rmvTag(), await rem?.addTag(TB930)) : null;
+      judgeTag.includes("Table990") ? (await rmvTag(), await rem?.addTag(TB960)) : null;
+      judgeTag.includes("Table1020") ? (await rmvTag(), await rem?.addTag(TB990)) : null;
+      judgeTag.includes("Table1050") ? (await rmvTag(), await rem?.addTag(TB1020)) : null;
+      judgeTag.includes("Table1080") ? (await rmvTag(), await rem?.addTag(TB1050)) : null;
+      judgeTag.includes("Table1110") ? (await rmvTag(), await rem?.addTag(TB1080)) : null;
+      judgeTag.includes("Table1140") ? (await rmvTag(), await rem?.addTag(TB1110)) : null;
+      judgeTag.includes("Table1170") ? (await rmvTag(), await rem?.addTag(TB1140)) : null;
+      judgeTag.includes("Table1200") ? (await rmvTag(), await rem?.addTag(TB1170)) : null;
     },
   });
 }
