@@ -920,9 +920,9 @@ async function onActivate(plugin: ReactRNPlugin) {
   const rmvTag = async () => {
     const rem = await plugin.focus.getFocusedRem();
     const remForTagging = (await rem?.getTagRems()) ?? [];
-    const filteredArray = remForTagging.filter((item) => item.parent);
-    const tagID: string = filteredArray[0]?._id;
-    console.log(tagID);
+    const filteredArray = await remForTagging.filter((item) => item.parent);
+    const tagID: string = await filteredArray[0]?._id;
+    await console.log(tagID);
     await rem?.removeTag(tagID, true);
   };
 
@@ -935,10 +935,10 @@ async function onActivate(plugin: ReactRNPlugin) {
     action: async () => {
       const rem = await plugin.focus.getFocusedRem();
       const tbTag = (await rem?.getTagRems()) ?? [];
-      const filteredArray = tbTag.filter((item) => item.parent);
+      const filteredArray = await tbTag.filter((item) => item.parent);
       // const tbTagSelected = await tbTag.filter(TB360);
       // console.log(tbTagSelected);
-      const judgeTag = filteredArray[0]?.text.toString();
+      const judgeTag = await filteredArray[0]?.text.toString();
       // console.log(judgeTag);
       judgeTag.includes("Table90") ? (await rmvTag(), await rem?.addTag(TB120)) : null;
       judgeTag.includes("Table120") ? (await rmvTag(), await rem?.addTag(TB150)) : null;
@@ -988,8 +988,8 @@ async function onActivate(plugin: ReactRNPlugin) {
     action: async () => {
       const rem = await plugin.focus.getFocusedRem();
       const tbTag = (await rem?.getTagRems()) ?? [];
-      const filteredArray = tbTag.filter((item) => item.parent);
-      const judgeTag = filteredArray[0]?.text.toString();
+      const filteredArray = await tbTag.filter((item) => item.parent);
+      const judgeTag = await filteredArray[0]?.text.toString();
       // console.log(judgeTag);
       judgeTag.includes("Table120") ? (await rmvTag(), await rem?.addTag(TB90)) : null;
       judgeTag.includes("Table150") ? (await rmvTag(), await rem?.addTag(TB120)) : null;
