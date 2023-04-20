@@ -922,7 +922,7 @@ async function onActivate(plugin: ReactRNPlugin) {
     const remForTagging = (await rem?.getTagRems()) ?? [];
     const filteredArray = await remForTagging.filter((item) => item.parent);
     const tagID: string = await filteredArray[0]?._id;
-    await console.log(tagID);
+    // await console.log(tagID);
     await rem?.removeTag(tagID, true);
   };
 
