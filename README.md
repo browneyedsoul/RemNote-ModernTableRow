@@ -17,9 +17,9 @@ Make your Rem Table with simple tags!
   ![image](https://user-images.githubusercontent.com/58147075/205598631-67e58b0a-19f5-4c74-8ed9-3b5a563362a4.png)
 
 - Focus the cursor where the Table Title exist.
-- Then open the context menu via simple onmibar or slash command, 
+- Then open command list via onmibar(⌘+/) or slash(/)
 - And then type `tb`. You'll see the options for modern table row 
-- Without any cumbersome procedure, you can just make the table with keyboard shortcut. You can find the shortcut in the shortcut page.
+- Without any cumbersome procedure, you can just make the table with keyboard shortcut. You can find the shortcut in the keyboard shortcut config page.
  
 
 # Tune your table with tagging
@@ -31,7 +31,6 @@ Make your Rem Table with simple tags!
 - After making the table, you can see the width of left column would be 150px.
 - Of course you can resize the property column width.
 - Simply tune the width with omnibar/slash command or keyboard shortcut. Shortcut would be easy way when you are using computer.
-![property](public/property.gif)
 <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/property.gif">
 
 ## Global Column Width Control
