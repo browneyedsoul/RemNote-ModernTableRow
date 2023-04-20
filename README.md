@@ -7,6 +7,7 @@ Make your Rem Table with simple tags!
 
 > **Absolutely**, These are the reasons why you should consider before using the `Modern Table Row`
 - I just want light weight, basic level table for logging simple, static information without sorting, filtering kind of things.
+- I place a lot of value on the plain Outliner format and a keyboard-driven experience for fast table entry and configuration.
 - I really care about the ability to export as a markdown text for the compatibility with other programs or documents.
 
 ## Getting Started
@@ -30,9 +31,11 @@ Make your Rem Table with simple tags!
 - After making the table, you can see the width of left column would be 150px.
 - Of course you can resize the property column width.
 - Simply tune the width with omnibar/slash command or keyboard shortcut. Shortcut would be easy way when you are using computer.
+![property](public/property.gif)
+<img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/property.gif">
 
 ## Global Column Width Control
-
+can I embed adsense in 
 - Select one of the widths to control the global column width
 - Available widths → 90px to 1200px, 30px interval. 
 - A 100px interval is also available, which would make it easier to remember.
