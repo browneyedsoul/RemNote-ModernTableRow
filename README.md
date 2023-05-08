@@ -42,15 +42,6 @@ can I embed adsense in
 
   | Global Column Width | Tag Name for tuning global width |
   | ------------- | ------------- |
-  | 90px | `W90` |
-  | 120px | `W120` |
-  | 150px | `W150` |
-  | 180px | `W180` |
-  | 210px | `W210` |
-  | ...   |   ...    |
-  | 1170px | `W1170` |
-  | 1200px | `W1200` |
-  | - |  - |
   | 100px | `W100` |
   | 200px | `W200` |
   | 300px | `W300` |
@@ -94,11 +85,7 @@ can I embed adsense in
 
 ## Table Column Header Formatting
 
-- Tag Name : `TH`
-- Demo
-  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/thformatting.png">
-  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/thformatting.gif">
-
+- To toggle the table header, you can use the omnibar/slash command (tbh) or a keyboard shortcut in the far left column.
 
 ## Turning a Row table cell into a Column Table cell
   
