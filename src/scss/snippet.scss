@@ -1,14 +1,14 @@
 :root {
     --table-title-bg: #E6E6E4;
-    --table-title-bg-dark: #525252;
+    --table-title-bg-dark: #383838;
     --table-columnrow-bg: #E6E6E4;
-    --table-columnrow-bg-dark: #525252;
+    --table-columnrow-bg-dark: #383838;
     --table-property-bg: #F7F6F3;
     --table-property-bg-dark: #1D1D24;
     --table-cell-bg: #FFFFFF;
     --table-cell-bg-dark: #232329;
     --table-border: #E6E6E4;
-    --table-border-dark: #525252;
+    --table-border-dark: #383838;
     --table-scrollbar: #BBB;
     --table-scrollbar-dark: #222;
     --table-bg-rd: #FFEEEB;
@@ -213,7 +213,7 @@ $LocalLeft: (
                 margin: 0.5rem 0 0.5rem 1.5rem;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
-                background-color: $table-property-bg;
+                background-color: $table-columnrow-bg;
                 border: 0.07rem solid $table-border;
                 // Fix Global Flaw
                 .EditorContainer {
