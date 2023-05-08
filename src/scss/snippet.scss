@@ -171,6 +171,7 @@ $LocalLeft: (
                             > div.tree-node--parent {
                                 border-right: 0.07rem solid $table-border;
                                 background-color: $table-property-bg;
+                                font-weight: 550;
                             }
                             > div.tree-node--children {
                                 background-color: $table-cell-bg;
@@ -296,7 +297,7 @@ $LocalLeft: (
                 [data-rem-container-tags~="th"],
                 [data-rem-container-tags~="th"] > .tree-node--children > .animate-zoom-into-bullet,
                 [data-rem-container-tags~="tablecolor"] {
-                    background-color: $table-columnrow-bg !important;
+                    background-color: $table-property-bg !important;
                     font-weight: 550;
                     text-align: center;
                     [data-rem-tags~="th"],
