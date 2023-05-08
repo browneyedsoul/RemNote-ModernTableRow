@@ -1,5 +1,15 @@
 {
   "trailingComma": "all",
   "bracketSpacing": false,
-  "printWidth": 120
+  "printWidth": 120,
+  "singleQuote": true,
+  "singleAttributePerLine": true,
+  "overrides": [ 
+    {
+      "files": "webpack.config.js",
+      "options": {
+        "printWidth": 100
+      }
+    }
+  ]
 }
