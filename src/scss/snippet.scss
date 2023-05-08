@@ -1,8 +1,10 @@
 :root {
     --table-title-bg: #E6E6E4;
     --table-title-bg-dark: #525252;
-    --table-columnrow-bg: #F7F6F3;
-    --table-columnrow-bg-dark: #1D1D24;
+    --table-columnrow-bg: #E6E6E4;
+    --table-columnrow-bg-dark: #525252;
+    --table-property-bg: #F7F6F3;
+    --table-property-bg-dark: #1D1D24;
     --table-cell-bg: #FFFFFF;
     --table-cell-bg-dark: #232329;
     --table-border: #E6E6E4;
@@ -136,6 +138,7 @@ $LocalLeft: (
 @mixin ModernTableRow(
     $table-title-bg,
     $table-columnrow-bg,
+    $table-property-bg,
     $table-cell-bg,
     $table-border,
     $table-scrollbar,
@@ -351,7 +354,7 @@ $LocalLeft: (
                         > .tree-node--parent {
                             float: left;
                             font-weight: 550;
-                            background-color: $table-columnrow-bg;
+                            background-color: $table-property-bg;
                             text-align: left;
                             padding-left: 0em;
                             height: 100%;
@@ -485,6 +488,7 @@ $LocalLeft: (
 @include ModernTableRow(
     var(--table-title-bg),
     var(--table-columnrow-bg),
+    var(--table-property-bg),
     var(--table-cell-bg),
     var(--table-border),
     var(--table-scrollbar),
@@ -499,6 +503,7 @@ $LocalLeft: (
     @include ModernTableRow(
         var(--table-title-bg-dark),
         var(--table-columnrow-bg-dark),
+        var(--table-property-bg-dark),
         var(--table-cell-bg-dark),
         var(--table-border-dark),
         var(--table-scrollbar-dark),
