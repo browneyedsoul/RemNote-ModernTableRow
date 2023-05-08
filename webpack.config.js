@@ -1,10 +1,10 @@
-const { resolve } = require('path');
+const {resolve} = require('path');
 var glob = require('glob');
 var path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ESBuildMinifyPlugin } = require('esbuild-loader');
-const { ProvidePlugin, BannerPlugin } = require('webpack');
+const {ESBuildMinifyPlugin} = require('esbuild-loader');
+const {ProvidePlugin, BannerPlugin} = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
@@ -48,7 +48,7 @@ const config = {
         test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { url: false } },
+          {loader: 'css-loader', options: {url: false}},
           'postcss-loader',
         ],
       },
@@ -87,8 +87,9 @@ const config = {
       patterns: [
         {from: 'public', to: ''},
         {from: 'README.md', to: ''},
-        {from: 'src/snippet.css', to: ''}
-      ]
+        {from: 'src/snippet.css', to: ''},
+        {from: 'src/App.css', to: ''},
+      ],
     }),
     fastRefresh,
   ].filter(Boolean),
