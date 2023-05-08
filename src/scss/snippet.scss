@@ -170,6 +170,7 @@ $LocalLeft: (
                             }
                             > div.tree-node--parent {
                                 border-right: 0.07rem solid $table-border;
+                                background-color: $table-property-bg;
                             }
                             > div.tree-node--children {
                                 background-color: $table-cell-bg;
@@ -212,7 +213,7 @@ $LocalLeft: (
                 margin: 0.5rem 0 0.5rem 1.5rem;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
-                background-color: $table-columnrow-bg;
+                background-color: $table-property-bg;
                 border: 0.07rem solid $table-border;
                 // Fix Global Flaw
                 .EditorContainer {
