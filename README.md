@@ -85,7 +85,8 @@ can I embed adsense in
 
 ## Table Column Header Formatting
 
-- To toggle the table header, you can use the omnibar/slash command (tbh) or a keyboard shortcut in the far left column.
+- To toggle the table header in the far left column, you can use the omnibar/slash command (tbh) or a keyboard shortcut(configurable).
+  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/th.gif">
 
 ## Turning a Row table cell into a Column Table cell
   
