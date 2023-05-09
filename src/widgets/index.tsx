@@ -838,7 +838,7 @@ async function onActivate(plugin: ReactRNPlugin) {
     id: 'table',
     name: 'Table',
     quickCode: 'tb',
-    keyboardShortcut: 'command+shift+t',
+    keyboardShortcut: 'cmd+shift+t',
     description: 'All the presets for table left cell customization',
     action: async () => {
       const rem = await plugin.focus.getFocusedRem();
@@ -850,18 +850,20 @@ async function onActivate(plugin: ReactRNPlugin) {
     id: 'table-header',
     name: 'Table Header',
     quickCode: 'tbh',
-    keyboardShortcut: 'command+shift+h',
+    keyboardShortcut: 'cmd+shift+h',
     description: 'All the presets for table left cell customization',
     action: async () => {
-      const rem = await plugin.focus.getFocusedRem();
       const TBH: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'tableheader');
       const TBHID = await TBH._id;
+
+      const rem = await plugin.focus.getFocusedRem();
       const remTagged = await rem?.getTagRems();
-      
-      if (remTagged?.length === 0) {
-        await rem?.addTag(TBH);
-      } else {
+      const tagID = await remTagged?.filter((e) => e._id === TBHID);
+
+      if (tagID?.length === 1) {
         await rem?.removeTag(TBHID, true);
+      } else {
+        await rem?.addTag(TBH);
       }
     },
   });
