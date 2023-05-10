@@ -3,7 +3,7 @@
     --table-title-bg-dark: #383838;
     --table-columnrow-bg: #E6E6E4;
     --table-columnrow-bg-dark: #383838;
-    --table-property-bg: #F7F6F3;
+    --table-property-bg: #F7F5F3;
     --table-property-bg-dark: #1D1D24;
     --table-cell-bg: #FFFFFF;
     --table-cell-bg-dark: #232329;
@@ -174,11 +174,12 @@ $LocalLeft: (
                                 font-weight: 550;
                             }
                             > div.tree-node--children {
-                                background-color: $table-cell-bg;
+                                background-color: $table-property-bg;
                                 flex-direction: row;
                                 padding-left: 0;
                                 > div.rn-editor-container {
                                     border-right: 0.07rem solid $table-border;
+                                    background-color: $table-cell-bg;
                                     > div.tree-node--children {
                                         padding-left: 0;
                                     }
@@ -344,7 +345,7 @@ $LocalLeft: (
                         display: none;
                     }
                     // Table Row and Column
-                    > .animate-zoom-into-bullet {
+                    > .rn-editor-container {
                         // Table all the horizontal lines
                         border-bottom: 0.07rem solid $table-border;
                         border-left: unset;
@@ -433,6 +434,7 @@ $LocalLeft: (
                             text-align: left;
                             height: 100%;
                             padding-left: 0;
+                            background-color: $table-property-bg;
                             &::-webkit-scrollbar-track {
                                 margin-left: 1rem;
                             }
