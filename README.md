@@ -34,7 +34,7 @@ Make your Rem Table with simple tags!
 <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/property.gif">
 
 ## Global Column Width Control
-can I embed adsense in 
+
 - Select one of the widths to control the global column width
 - Available widths → 90px to 1200px, 30px interval. 
 - A 100px interval is also available, which would make it easier to remember.
