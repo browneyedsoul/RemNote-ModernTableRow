@@ -25,6 +25,12 @@ const config = {
     return obj;
   }, {}),
 
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
+
   output: {
     path: resolve(__dirname, 'dist'),
     filename: `[name].js`,
