@@ -94,15 +94,3 @@ Make your Rem Table with simple tags!
 - Demo
   
   <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/row-to-column.webp">
-
-## Use case
-
-<details>
-  <summary>Copy a Table from any sources</summary>
-  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/0.gif">
-</details>
-
-<details>
-  <summary>Paste it to RemNote and Tag the predefined-width Table Row Tags to the Table Title area</summary>
-  <img src="https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/1.gif">
-</details>
