@@ -54,6 +54,15 @@
         }
     }
 }
+%rmvPlaceholder {
+    .rn-editor__rem__body__text {
+        > .rich-text-editor {
+            > .absolute {
+                color: transparent;
+            }
+        }
+    }
+}
 $Tables: (
     "90": 90px,
     "120": 120px,
@@ -173,6 +182,7 @@ $LocalLeft: (
                                 background-color: $table-property-bg;
                                 font-weight: 550;
                                 > .rem {
+                                    @extend %rmvPlaceholder;
                                     .rn-editor__right__side {
                                         display: none;
                                     }
@@ -372,6 +382,9 @@ $LocalLeft: (
                             text-align: left;
                             padding-left: 0em;
                             height: 100%;
+                            > .rem {
+                                @extend %rmvPlaceholder;
+                            }
                             &:has(.highlight-color--red[data-rem-tags~="highlight"]) {
                                 background-color: $table-bg-rd;
                                 > span {
