@@ -197,6 +197,12 @@ $LocalLeft: (
                                     background-color: $table-cell-bg;
                                     > div.tree-node--children {
                                         padding-left: 0;
+                                        > .rn-editor-container {
+                                            .tree-node--children {
+                                                margin-left: 1.55rem;
+                                                border-left: 0.07rem solid $table-border;
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -334,8 +340,9 @@ $LocalLeft: (
                 > .tree-node--children {
                     display: grid;
                     grid-auto-rows: auto;
-                    border-left: unset;
+                    border-left: unset !important;
                     padding-left: 0;
+                    margin-left: 0 !important;
                     overflow-y: hidden;
                     @media screen and (min-width: 280px) {
                         overflow-x: auto;
@@ -458,6 +465,7 @@ $LocalLeft: (
                             text-align: left;
                             height: 100%;
                             padding-left: 0;
+                            border-left: unset !important;
                             background-color: $table-property-bg;
                             &::-webkit-scrollbar-track {
                                 margin-left: 1rem;
@@ -471,6 +479,8 @@ $LocalLeft: (
                                 // width: 98%; This was a remedy for codeblock overflow but harmed whole table width control
                                 > div.tree-node--children {
                                     padding-left: 0;
+                                    margin-left: 0 !important;
+                                    border-left: unset !important;
                                     // > div {
                                     //     > div {
                                     //         > span {
@@ -478,6 +488,20 @@ $LocalLeft: (
                                     //         }
                                     //     }
                                     // }
+                                    > .rn-editor-container {
+                                        > .tree-node--children {
+                                            margin-left: 1.55rem;
+                                            border-left: 0.07rem solid $table-border;
+                                        }
+                                        .rn-editor-container {
+                                            > .tree-node--children {
+                                                margin-left: 1.55rem;
+                                            }
+                                            .tree-node--children {
+                                                border-left: 0.07rem solid $table-border;
+                                            }
+                                        }
+                                    }
                                 }
                                 // For Selecting Dense-width Cell Text Eclipsed with Rem-container
                                 .rich-text-editor {
