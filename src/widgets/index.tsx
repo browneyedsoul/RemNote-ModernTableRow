@@ -836,7 +836,7 @@ async function onActivate(plugin: ReactRNPlugin) {
 
   await plugin.app.registerCommand({
     id: 'table',
-    name: 'Table',
+    name: 'Create Minimal Table',
     quickCode: 'tb',
     keyboardShortcut: 'cmd+shift+t',
     description: 'All the presets for table left cell customization',
@@ -848,7 +848,7 @@ async function onActivate(plugin: ReactRNPlugin) {
 
   await plugin.app.registerCommand({
     id: 'table-header',
-    name: 'Table Header',
+    name: 'Minimal Table Header',
     quickCode: 'tbh',
     keyboardShortcut: 'cmd+shift+h',
     description: 'All the presets for table left cell customization',
@@ -868,37 +868,38 @@ async function onActivate(plugin: ReactRNPlugin) {
     },
   });
 
-  await plugin.app.registerCommand({
-    id: 'table-list',
-    name: 'Table Left Width List',
-    quickCode: 'tbl',
-    description: 'All the presets for table left cell customization',
-    action: async () => {
-      const rem = await plugin.powerup.getPowerupByCode(TABLE);
-      await rem?.openRemInContext();
-    },
-  });
-  await plugin.app.registerCommand({
-    id: 'width-list',
-    name: 'Table Global Width List',
-    quickCode: 'tbg',
-    description: 'A Simple Table',
-    action: async () => {
-      const rem = await plugin.powerup.getPowerupByCode(WIDTH);
-      await rem?.openRemInContext();
-    },
-  });
+  // await plugin.app.registerCommand({
+  //   id: 'table-list',
+  //   name: 'Minimal Table Left Width List',
+  //   quickCode: 'tbl',
+  //   description: 'All the presets for table left cell customization',
+  //   action: async () => {
+  //     const rem = await plugin.powerup.getPowerupByCode(TABLE);
+  //     await rem?.openRemInContext();
+  //   },
+  // });
+  // await plugin.app.registerCommand({
+  //   id: 'width-list',
+  //   name: 'Minimal Table Global Width List',
+  //   quickCode: 'tbg',
+  //   description: 'A Simple Table',
+  //   action: async () => {
+  //     const rem = await plugin.powerup.getPowerupByCode(WIDTH);
+  //     await rem?.openRemInContext();
+  //   },
+  // });
 
-  await plugin.app.registerCommand({
-    id: 'test',
-    name: 'Test',
-    description: 'A Simple Test',
-    keyboardShortcut: 'opt+shift+t',
-    action: async () => {
-      const rem = await plugin.powerup.getPowerupByCode(WIDTH);
-      console.log(TABLE);
-    },
-  });
+  // TODO - width config with shortcuts
+  // await plugin.app.registerCommand({
+  //   id: 'test',
+  //   name: 'Test',
+  //   description: 'A Simple Test',
+  //   keyboardShortcut: 'opt+shift+t',
+  //   action: async () => {
+  //     const rem = await plugin.powerup.getPowerupByCode(WIDTH);
+  //     console.log(TABLE);
+  //   },
+  // });
 
   const TB90: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table90');
   const TB120: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table120');
