@@ -9,7 +9,7 @@
   "version": {
     "major": 2,
     "minor": 1,
-    "patch": 8
+    "patch": 9
   },
   "requestNative": true,
   "requiredScopes": [
