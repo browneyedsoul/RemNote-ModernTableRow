@@ -2,11 +2,14 @@
 
 Create your Rem Table with simple tags!
 
-## NOTICE
+## NOTICE I
 > This is not the built-in RemNote table feature.
 > The built-in RemNote table can be created via `/table` command
 
 ![Image](https://raw.githubusercontent.com/browneyedsoul/RemNote-ModernTableRow/main/public/26f68f2b-a31e-4471-9da4-3f8c51def188.png)
+
+## NOTICE II
+> Due to performance issues, property widths exceeding 600px will no longer be supported.
 
 ## Goal of the Minimal Table
 - It provides a lightweight, basic-level table **for logging simple, static information** with hierarchy without sorting or filtering capabilities.
