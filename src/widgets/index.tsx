@@ -161,126 +161,6 @@ async function onActivate(plugin: ReactRNPlugin) {
         hidden: false,
         onlyProgrammaticModifying: false,
       },
-      {
-        name: 'Table630',
-        code: 'table630',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table660',
-        code: 'table660',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table690',
-        code: 'table690',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table720',
-        code: 'table720',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table750',
-        code: 'table750',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table780',
-        code: 'table780',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table810',
-        code: 'table810',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table840',
-        code: 'table840',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table870',
-        code: 'table870',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table900',
-        code: 'table900',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table930',
-        code: 'table930',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table960',
-        code: 'table960',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table990',
-        code: 'table990',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table1020',
-        code: 'table1020',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table1050',
-        code: 'table1050',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table1080',
-        code: 'table1080',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table1110',
-        code: 'table1110',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table1140',
-        code: 'table1140',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table1170',
-        code: 'table1170',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
-      {
-        name: 'Table1200',
-        code: 'table1200',
-        hidden: false,
-        onlyProgrammaticModifying: false,
-      },
     ],
   });
   await plugin.app.registerPowerup('Width', WIDTH, 'Column Width', {
@@ -919,26 +799,6 @@ async function onActivate(plugin: ReactRNPlugin) {
   const TB540: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table540');
   const TB570: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table570');
   const TB600: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table600');
-  const TB630: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table630');
-  const TB660: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table660');
-  const TB690: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table690');
-  const TB720: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table720');
-  const TB750: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table750');
-  const TB780: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table780');
-  const TB810: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table810');
-  const TB840: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table840');
-  const TB870: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table870');
-  const TB900: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table900');
-  const TB930: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table930');
-  const TB960: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table960');
-  const TB990: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table990');
-  const TB1020: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table1020');
-  const TB1050: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table1050');
-  const TB1080: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table1080');
-  const TB1110: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table1110');
-  const TB1140: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table1140');
-  const TB1170: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table1170');
-  const TB1200: any = await plugin.powerup.getPowerupSlotByCode(TABLE, 'table1200');
 
   const rmvTag = async () => {
     const rem = await plugin.focus.getFocusedRem();
@@ -980,26 +840,6 @@ async function onActivate(plugin: ReactRNPlugin) {
       judgeTag.includes('Table510') ? (await rmvTag(), await rem?.addTag(TB540)) : null;
       judgeTag.includes('Table540') ? (await rmvTag(), await rem?.addTag(TB570)) : null;
       judgeTag.includes('Table570') ? (await rmvTag(), await rem?.addTag(TB600)) : null;
-      judgeTag.includes('Table600') ? (await rmvTag(), await rem?.addTag(TB630)) : null;
-      judgeTag.includes('Table630') ? (await rmvTag(), await rem?.addTag(TB660)) : null;
-      judgeTag.includes('Table660') ? (await rmvTag(), await rem?.addTag(TB690)) : null;
-      judgeTag.includes('Table690') ? (await rmvTag(), await rem?.addTag(TB720)) : null;
-      judgeTag.includes('Table720') ? (await rmvTag(), await rem?.addTag(TB750)) : null;
-      judgeTag.includes('Table750') ? (await rmvTag(), await rem?.addTag(TB780)) : null;
-      judgeTag.includes('Table780') ? (await rmvTag(), await rem?.addTag(TB810)) : null;
-      judgeTag.includes('Table810') ? (await rmvTag(), await rem?.addTag(TB840)) : null;
-      judgeTag.includes('Table840') ? (await rmvTag(), await rem?.addTag(TB870)) : null;
-      judgeTag.includes('Table870') ? (await rmvTag(), await rem?.addTag(TB900)) : null;
-      judgeTag.includes('Table900') ? (await rmvTag(), await rem?.addTag(TB930)) : null;
-      judgeTag.includes('Table930') ? (await rmvTag(), await rem?.addTag(TB960)) : null;
-      judgeTag.includes('Table960') ? (await rmvTag(), await rem?.addTag(TB990)) : null;
-      judgeTag.includes('Table990') ? (await rmvTag(), await rem?.addTag(TB1020)) : null;
-      judgeTag.includes('Table1020') ? (await rmvTag(), await rem?.addTag(TB1050)) : null;
-      judgeTag.includes('Table1050') ? (await rmvTag(), await rem?.addTag(TB1080)) : null;
-      judgeTag.includes('Table1080') ? (await rmvTag(), await rem?.addTag(TB1110)) : null;
-      judgeTag.includes('Table1110') ? (await rmvTag(), await rem?.addTag(TB1140)) : null;
-      judgeTag.includes('Table1140') ? (await rmvTag(), await rem?.addTag(TB1170)) : null;
-      judgeTag.includes('Table1170') ? (await rmvTag(), await rem?.addTag(TB1200)) : null;
     },
   });
   await plugin.app.registerCommand({
@@ -1031,26 +871,6 @@ async function onActivate(plugin: ReactRNPlugin) {
       judgeTag.includes('Table540') ? (await rmvTag(), await rem?.addTag(TB510)) : null;
       judgeTag.includes('Table570') ? (await rmvTag(), await rem?.addTag(TB540)) : null;
       judgeTag.includes('Table600') ? (await rmvTag(), await rem?.addTag(TB570)) : null;
-      judgeTag.includes('Table630') ? (await rmvTag(), await rem?.addTag(TB600)) : null;
-      judgeTag.includes('Table660') ? (await rmvTag(), await rem?.addTag(TB630)) : null;
-      judgeTag.includes('Table690') ? (await rmvTag(), await rem?.addTag(TB660)) : null;
-      judgeTag.includes('Table720') ? (await rmvTag(), await rem?.addTag(TB690)) : null;
-      judgeTag.includes('Table750') ? (await rmvTag(), await rem?.addTag(TB720)) : null;
-      judgeTag.includes('Table780') ? (await rmvTag(), await rem?.addTag(TB750)) : null;
-      judgeTag.includes('Table810') ? (await rmvTag(), await rem?.addTag(TB780)) : null;
-      judgeTag.includes('Table840') ? (await rmvTag(), await rem?.addTag(TB810)) : null;
-      judgeTag.includes('Table870') ? (await rmvTag(), await rem?.addTag(TB840)) : null;
-      judgeTag.includes('Table900') ? (await rmvTag(), await rem?.addTag(TB870)) : null;
-      judgeTag.includes('Table930') ? (await rmvTag(), await rem?.addTag(TB900)) : null;
-      judgeTag.includes('Table960') ? (await rmvTag(), await rem?.addTag(TB930)) : null;
-      judgeTag.includes('Table990') ? (await rmvTag(), await rem?.addTag(TB960)) : null;
-      judgeTag.includes('Table1020') ? (await rmvTag(), await rem?.addTag(TB990)) : null;
-      judgeTag.includes('Table1050') ? (await rmvTag(), await rem?.addTag(TB1020)) : null;
-      judgeTag.includes('Table1080') ? (await rmvTag(), await rem?.addTag(TB1050)) : null;
-      judgeTag.includes('Table1110') ? (await rmvTag(), await rem?.addTag(TB1080)) : null;
-      judgeTag.includes('Table1140') ? (await rmvTag(), await rem?.addTag(TB1110)) : null;
-      judgeTag.includes('Table1170') ? (await rmvTag(), await rem?.addTag(TB1140)) : null;
-      judgeTag.includes('Table1200') ? (await rmvTag(), await rem?.addTag(TB1170)) : null;
     },
   });
 }

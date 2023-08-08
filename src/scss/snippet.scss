@@ -82,30 +82,9 @@ $Tables: (
     "540": 540px,
     "570": 570px,
     "600": 600px,
-    "660": 660px,
-    "690": 690px,
-    "720": 720px,
-    "750": 750px,
-    "780": 780px,
-    "810": 810px,
-    "840": 840px,
-    "870": 870px,
-    "900": 900px,
-    "930": 930px,
-    "960": 960px,
-    "990": 990px,
-    "1020": 1020px,
-    "1050": 1050px,
-    "1080": 1080px,
-    "1110": 1110px,
-    "1140": 1140px,
-    "1170": 1170px,
-    "1200": 1200px,
 );
-$TableWidths: 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 480, 510, 540, 570, 600, 630, 660, 690, 720, 750, 780, 810, 840, 870, 900, 930, 960, 990, 1020, 1050,
-    1080, 1110, 1140, 1170, 1200;
-$GlobalWidths: 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 480, 510, 540, 570, 600, 630, 660, 690, 720, 750, 780, 810, 840, 870, 900, 930, 960, 990,
-    1020, 1050, 1080, 1110, 1140, 1170, 1200, 100, 200, 400, 500, 700, 800, 1000, 1100;
+$TableWidths: 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 480, 510, 540, 570, 600;
+$GlobalWidths: 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 480, 510, 540, 570, 600;
 $LocalWidths: c1w100, c2w100, c3w100, c4w100, c5w100, c6w100, c7w100, c8w100, c9w100, c1w200, c2w200, c3w200, c4w200, c5w200, c6w200, c7w200, c8w200, c9w200, c1w300, c2w300, c3w300, c4w300, c5w300, c6w300, c7w300, c8w300, c9w300, c1w400, c2w400, c3w400, c4w400, c5w400, c6w400, c7w400, c8w400, c9w400, c1w500, c2w500, c3w500, c4w500, c5w500, c6w500, c7w500, c8w500, c9w500, c1w600, c2w600, c3w600,
     c4w600, c5w600, c6w600, c7w600, c8w600, c9w600, c1w700, c2w700, c3w700, c4w700, c5w700, c6w700, c7w700, c8w700, c9w700, c1w800, c2w800, c3w800, c4w800, c5w800, c6w800, c7w800, c8w800, c9w800, c1w900, c2w900, c3w900, c4w900, c5w900, c6w900, c7w900, c8w900, c9w900, c1w1000, c2w1000, c3w1000, c4w1000, c5w1000, c6w1000,
     c7w1000, c8w1000, c9w1000;
@@ -568,7 +547,7 @@ $LocalLeft: (
     );
 }
 // Table Row and Column Attribute Cell
-@for $i from 3 through 40 {
+@for $i from 3 through 20 {
     [data-rem-container-tags~="table#{$i * 30}"] > .tree-node--children > .animate-zoom-into-bullet > :first-child {
         width: #{$i * 30px} !important;
     }
@@ -583,7 +562,7 @@ $LocalLeft: (
     }
 }
 // Width Adjustment of Whole Table Content Cell
-@for $i from 1 through 40 {
+@for $i from 1 through 20 {
     [data-rem-container-tags~="w#{$i * 30}"] > .tree-node--children > .animate-zoom-into-bullet > .tree-node--children > .animate-zoom-into-bullet {
         width: #{$i * 30px} !important;
     }
