@@ -8,8 +8,8 @@
   "manifestVersion": 1,
   "version": {
     "major": 2,
-    "minor": 1,
-    "patch": 11
+    "minor": 2,
+    "patch": 0
   },
   "requestNative": true,
   "requiredScopes": [
