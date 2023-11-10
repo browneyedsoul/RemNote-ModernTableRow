@@ -212,7 +212,7 @@ $LocalLeft: (
     #hierarchy-editor {
         @each $width in $TableWidths {
             [data-rem-container-tags~="table#{$width}"] {
-                margin: 0.5rem 0 0.5rem 1.5rem;
+                margin: 0.5rem 0 0.5rem 0.2rem;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
                 background-color: $table-columnrow-bg;
